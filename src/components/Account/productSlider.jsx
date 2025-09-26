@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import styles from "./productSlider.module.css";
+import styles from "./productslider.module.css";
 import { FaChevronLeft, FaChevronRight, FaHeart, FaShoppingCart } from "react-icons/fa";
 
 /* ---------- Product Data (dummy) ---------- */
