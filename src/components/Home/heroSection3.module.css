@@ -233,6 +233,10 @@
   .cardImage{margin-top: 20px;}
   .price { font-size: 14px; }
   .rightGrid { grid-template-columns: 1fr 1fr; }
+  .bottomSection{
+    flex-direction: row;
+    display: none;
+  }
 }
 
 /* Mobile Medium (≤375px) */
