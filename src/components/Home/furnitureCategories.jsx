@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./FurnitureCategories.module.css";
+import styles from "./furnitureCategories.module.css";
 
 const categories = [
   { id: 1, title: "SOFAS", category: "Living", img: "/images/Home/sofa1.jpg" },
