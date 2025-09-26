@@ -46,7 +46,7 @@ export default function Footer() {
         <div>
           <h3>Make Money with Us</h3>
           <ul>
-            <li>Sixpine Global Selling</li>
+            <li><Link to="/global-selling">Sixpine Global Selling</Link></li>
             <li>Supply to Sixpine</li>
             <li>Advertise Your Products</li>
           </ul>
