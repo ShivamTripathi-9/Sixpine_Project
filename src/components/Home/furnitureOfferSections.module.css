@@ -1,0 +1,189 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Section */
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px 10px 5px;
+  padding:  0 20px;
+}
+
+.sectionHeader h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sectionHeader a {
+  font-size: 14px;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.sectionHeader a:hover {
+  text-decoration: underline;
+}
+
+/* Slider */
+.sliderWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+/* ✅ Thin scrollbar */
+.slider::-webkit-scrollbar {
+  height: 6px; /* thin horizontal scrollbar */
+}
+
+.slider::-webkit-scrollbar-track {
+  background: transparent; /* optional */
+}
+
+.slider::-webkit-scrollbar-thumb {
+  background: #ccc; /* color of the scrollbar */
+  border-radius: 10px;
+}
+
+.slider::-webkit-scrollbar-thumb:hover {
+  background: #999; /* darker on hover */
+}
+
+
+/* Card */
+.card {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation Buttons */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.navBtn:hover {
+  opacity: 1;
+}
+
+.leftBtn {
+  left: -18px;
+}
+
+.rightBtn {
+  right: -18px;
+}
+/* ---------------- RESPONSIVE BREAKPOINTS ---------------- */
+
+/* Large screens (desktops) */
+@media (max-width: 1280px) {
+  .card {
+    width: 200px;
+    height: 180px;
+  }
+}
+
+/* Tablets landscape */
+@media (max-width: 1024px) {
+  .card {
+    width: 180px;
+    height: 160px;
+  }
+}
+
+/* Tablets portrait */
+@media (max-width: 768px) {
+  .card {
+    width: 150px;
+    height: 140px;
+  }
+  .sectionHeader h2 {
+    font-size: 16px;
+  }
+  .sectionHeader a {
+    font-size: 13px;
+  }
+}
+
+/* Mobile large */
+@media (max-width: 425px) {
+  .card {
+    width: 140px;
+    height: 130px;
+  }
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile medium */
+@media (max-width: 375px) {
+  .card {
+    width: 120px;
+    height: 120px;
+  }
+  .sectionHeader h2 {
+    font-size: 15px;
+  }
+  .sectionHeader a {
+    font-size: 12px;
+  }
+}
+
+/* Mobile small */
+@media (max-width: 325px) {
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+  .sectionHeader h2 {
+    font-size: 14px;
+  }
+}

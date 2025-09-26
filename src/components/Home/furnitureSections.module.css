@@ -1,0 +1,246 @@
+.furnitureContainer {
+  width: 100%;
+  /* margin: auto; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.section {
+  /* margin: 40px 0; */
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionHeader h2 {
+  font-size: 22px;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.sectionHeader p {
+  font-size: 14px;
+  color: gray;
+  margin: 5px 0 0;
+  padding: 0 20px;
+}
+
+.viewBtn {
+  background: none;
+  border: 1px solid #0077cc;
+  color: #0077cc;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100px;   /* fixed width */
+  height: 36px;   /* fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.viewBtn:hover {
+  background: #0077cc;
+  color: #fff;
+}
+
+
+.productWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navBtn {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  z-index: 2;
+}
+
+/* Shared Product List */
+.productList {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  flex: 1;
+}
+
+/* Scroll (slider) Mode */
+.scroll {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.scroll::-webkit-scrollbar {
+  height: 0px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Grid (View All) Mode */
+.grid {
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.grid .productCard {
+  flex: 1 1 calc(20% - 16px); 
+  max-width: calc(20% - 16px);
+}
+
+/* Card Design */
+.productCard {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 5px;
+  background: #fff;
+  transition: 0.3s;
+  width: 260px; 
+  flex-shrink: 0;  
+  cursor: pointer; 
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+  transform: scale(1.05); /* halka zoom popup effect */
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+  z-index: 5; /* ensure popup upar dikhai de */
+}
+
+.productCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.productCard h3 {
+  font-size: 16px;
+  margin: 10px 0 4px;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: gray;
+  margin-top: 2px;
+}
+
+/* Price Styling */
+.priceBlock {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.discount {
+  color: green;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.current {
+  font-weight: bold;
+  color: #000;
+  font-size: 15px;
+}
+
+.old {
+  text-decoration: line-through;
+  font-size: 13px;
+  color: gray;
+}
+
+/* Rating Styling */
+.rating {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.starFilled {
+  color: #f4b400; /* Gold */
+}
+
+.starEmpty {
+  color: #ddd;
+}
+
+
+
+/* ------------------ ✅ RESPONSIVE BREAKPOINTS ------------------ */
+
+/* Large Desktop (≥1024px) - 5 cards */
+/* @media (min-width: 1024px) {
+  .grid .productCard {
+    flex: 1 1 calc(20% - 16px);
+    max-width: calc(20% - 16px);
+  }
+} */
+
+/* Tablets (~768px) - 3 cards */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .grid .productCard {
+    flex: 1 1 calc(33.33% - 16px);
+    max-width: calc(33.33% - 16px);
+  }
+  .productCard img {
+    height: 160px;
+  }
+}
+
+/* Small Tablets & Large Phones (~425px) - 2 cards */
+@media (max-width: 767px) and (min-width: 426px) {
+  .grid .productCard {
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+  }
+  .productCard img {
+    height: 150px;
+  }
+}
+
+/* Phones (≤425px) - 1 card */
+@media (max-width: 425px) {
+  .grid .productCard {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .productCard img {
+    height: 140px;
+  }
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .viewBtn {
+    width: 30%;
+    margin-top: 10px;
+   
+    
+  }
+}
+

@@ -1,0 +1,338 @@
+/* productslider.module.css */
+.container {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  padding: 20px;
+  background: #fff;
+  color: #222;
+}
+
+/* Slider header: title (left) and page controls (right) */
+.sliderSection {
+  margin-bottom: 28px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sliderTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.pageControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.92rem;
+}
+
+.pageText {
+  color: #333;
+  margin-right: 6px;
+}
+
+/* small page arrows next to "Page X of Y" */
+/* .smallArrow {
+  background: #f5f5f5;
+  border: 1px solid #e6e6e6;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e74c3c;
+}
+.smallArrow svg {
+  font-size: 14px;
+} */
+
+/* Slider wrapper & center big arrows */
+.sliderWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 56px; /* space for big arrows */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+    transition: transform 0.4s ease-in-out; /* ✅ smooth slide */
+  will-change: transform;
+ 
+
+}
+.slider::-webkit-scrollbar { display: none; }
+
+/* big circular arrows (centered vertically) */
+.bigArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: 0 6px 18px rgba(0,0,0,0.15); */
+  z-index: 5;
+  border: none;
+  cursor: pointer;
+  
+}
+/* .bigArrow.left { left: px; } */
+.bigArrow.right { right: -10px; }
+.bigArrow svg { font-size: 15px }
+
+/* Product card layout */
+.productCard {
+  min-width: 270px;
+  max-width: 280px;
+  max-height: 380px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+ 
+  margin-left: -6px;
+
+
+  justify-content: space-between;
+}
+
+/* Image wrapper so we can overlay heart */
+.imgWrap {
+  position: relative;
+  width: 100%;
+  background: #fafafa;
+}
+.productImg {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+/* heart overlay top-right */
+.heartBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;   /* ✅ no background */
+  border: none;       /* ✅ no border */
+  cursor: pointer;
+  padding: 0;
+}
+
+.heartIcon {
+  color: white;
+  font-size: 20px; /* thoda bada dikhane ke liye */
+  transition: color 0.18s ease;
+}
+
+.heartActive {
+  color: #e0245e;
+  font-size: 20px;
+  transition: color 0.12s ease;
+}
+
+
+/* card body */
+.cardBody {
+  padding: 10px 12px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 170px;
+
+   flex: 1;
+}
+
+.productTitle {
+  font-size: 1rem;
+  margin: 6px 0 4px 0;
+  font-weight: 600;
+}
+.productDesc {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+/* rating and reviews */
+.productRating {
+  font-size: 0.9rem;
+  color: #f5a623;
+  margin-bottom: 8px;
+}
+.stars { margin-right: 6px; color: #f5a623; }
+.reviews { color: #555; font-size: 0.86rem; margin-left: 6px; }
+
+/* Prices: show new price first, then crossed old price */
+.productPrices {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+.newPrice {
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.oldPrice {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+/* actions at bottom */
+.cardActions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.buyBtn {
+  flex: 1;
+  background: #ffb400;
+  color: #111;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.cartBtn {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* small divider */
+.divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 18px 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .productCard {
+     min-width: 220px; max-width: 240px;
+     }
+  .productImg { height: 140px; }
+}
+
+
+@media (max-width: 768px) {
+  .slider {
+    padding: 8px 10px;
+    gap: 20px;
+  }
+
+  .productCard {
+    flex: 0 0 calc(100% / 3 - 14px); /* ✅ 3 cards in one page */
+    max-width: calc(100% / 3 - 14px);
+  }
+
+  .productImg {
+    height: 130px;
+  }
+
+  .bigArrow {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 425px) {
+  .productCard { min-width: 225px; max-width: 250px; }
+  .productImg { height: 110px; }
+  .bigArrow
+  {
+     width: 26px;
+    height: 26px;
+  }
+  .bigArrow.right { right: -7px; }
+.bigArrow svg { font-size: 15px }
+
+  .cardBody { min-height: 140px; }
+  .sliderHeader { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .pageControls { align-self: flex-end; }
+}
+
+/* 📱 For max-width: 375px */
+@media (max-width: 375px) {
+  .productCard { 
+    min-width: 200px; 
+    max-width: 220px; 
+  }
+  .productImg { height: 100px; }
+
+  .bigArrow {
+    width: 24px;
+    height: 24px;
+  }
+  .bigArrow.right { right: -6px; }
+  .bigArrow svg { font-size: 15px; }
+
+  .cardBody { min-height: 130px; }
+  .sliderHeader { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 6px; 
+  }
+  .pageControls { align-self: flex-end; }
+}
+
+/* 📱 For max-width: 325px */
+@media (max-width: 325px) {
+  .productCard { 
+    min-width: 180px; 
+    max-width: 200px; 
+  }
+  .productImg { height: 110px; }
+
+  .bigArrow {
+    width: 22px;
+    height: 22px;
+    top: 35%;
+  }
+  .bigArrow.right { right: -5px; }
+  .bigArrow svg { font-size: 15px; }
+
+  .cardBody { min-height: 120px; }
+  .sliderHeader { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 5px; 
+  }
+  .pageControls { align-self: flex-end; }
+}

@@ -1,0 +1,362 @@
+/* Container */
+.authSixpine {
+  padding: 60px 20px;
+  background-color: #f6f6f6;
+  color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card */
+.authSixpineCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  max-width: 420px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Brand */
+.authSixpineLogo {
+  display: block;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+  color: #212121;
+  text-decoration: none;
+  margin: 0 auto 16px; /* Center logo */
+  text-align: center;
+}
+
+/* Tabs */
+.authSixpineTabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.tabBtn {
+  border-radius: 999px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-weight: bold;
+  color: #212121;
+}
+
+.tabBtn.active {
+  background-color: #212121;
+  color: #fff;
+}
+
+.tabBtn:not(.active):hover {
+  border-color: #212121;
+}
+
+/* Forms */
+.authSixpineForm {
+  width: 100%;
+}
+
+.authSixpineForm label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: #212121;
+}
+
+.authSixpineForm input {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 100%;
+  margin-bottom: 14px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.authSixpineForm input:focus {
+  outline: none;
+  border-color: #212121;
+  box-shadow: 0 0 0 2px rgba(33,33,33,0.08);
+}
+
+/* Password eye toggle */
+.passwordField {
+  position: relative;
+}
+
+.authSixpineEye {
+  position: absolute;
+  right: 10px;
+  top: 55%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+  color: #6b7280;
+}
+
+/* Password note */
+.passwordNote {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+/* Keep me signed in - left aligned */
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 5px; /* space between checkbox and label */
+  justify-content: flex-start; /* align everything to the left */
+}
+
+.checkboxContainer input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.checkboxContainer label {
+  font-size: 0.95rem;
+  color: #212121;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+
+/* Buttons */
+.authSixpineBtn {
+  background-color: #212121;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  border: none;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.authSixpineBtn:hover {
+  filter: brightness(1.1);
+}
+
+.authSixpineOutlineBtn {
+  background: #fff;
+  color: #212121;
+  border: 1px solid #212121;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.authSixpineOutlineBtn:hover {
+  background: #212121;
+  color: #fff;
+}
+
+/* Notes & links */
+.authSixpineLink {
+  color: #212121;
+  text-decoration: none;
+}
+
+.authSixpineLink:hover { 
+  text-decoration: underline; 
+}
+
+.authSixpineNote {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Divider */
+.authSixpineDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 18px 0 10px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.authSixpineDivider::before,
+.authSixpineDivider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.authSixpineDivider:not(:empty)::before { 
+  margin-right: .75em; 
+}
+
+.authSixpineDivider:not(:empty)::after  { 
+  margin-left: .75em; 
+}
+
+/* Footer mini links */
+.authSixpineMini {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.authSixpineMini a {
+  color: #212121;
+  text-decoration: none;
+  margin: 0 2px;
+}
+
+.authSixpineMini a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+.resetForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.resetForm h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.resetForm input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.resetForm button {
+  padding: 10px;
+  background-color: #212121;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* ---------------- Responsive reset fome ---------------- */
+@media (max-width: 480px) {
+  .resetForm {
+    padding: 15px;
+    gap: 10px;
+    max-width: 90%;   
+    
+  }
+
+  .resetForm h2 {
+    font-size: 1.3rem;
+  }
+
+  .resetForm input {
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+
+  .resetForm button {
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .resetForm h2 {
+    font-size: 1.1rem;
+  }
+
+  .resetForm input,
+  .resetForm button {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .authSixpineCard { 
+    padding: 24px 20px; 
+  }
+  .authSixpineLogo { 
+    font-size: 2.4rem; 
+  }
+  .authSixpineForm input, .authSixpineBtn, .authSixpineOutlineBtn {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .authSixpineCard { 
+    padding: 22px 18px; 
+  }
+  .authSixpineLogo { 
+    font-size: 2.2rem; 
+  }
+  .authSixpineForm input, .authSixpineBtn, .authSixpineOutlineBtn {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .authSixpineCard { 
+    padding: 18px 12px; 
+    margin: 0 10px;
+  }
+  .authSixpineLogo { 
+    font-size: 2rem; 
+  }
+  .authSixpineForm input, .authSixpineBtn, .authSixpineOutlineBtn, .authSixpineNote, .checkboxContainer label {
+    font-size: 0.85rem;
+  }
+  .checkboxContainer input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 425px) {
+  .authSixpineCard {
+    padding: 16px 10px;
+  }
+  .authSixpineLogo {
+    font-size: 1.8rem;
+  }
+  .authSixpineForm input, .authSixpineBtn, .authSixpineOutlineBtn, .authSixpineNote, .checkboxContainer label {
+    font-size: 0.8rem;
+  }
+}
+

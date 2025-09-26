@@ -1,0 +1,264 @@
+.container {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin:  20px;
+  
+}
+
+/* Section 1 - Filter Buttons */
+.filterButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  /* margin-bottom: 20px; */
+  /* background-color: #e65c00; */
+}
+
+.subtitle
+{
+  padding: 0 20px ;
+  margin-bottom: 20px;
+}
+
+.filterButtons button {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  /* background: white; */
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+  width: 100px;
+}
+
+.filterButtons button:hover {
+  background: #ff6f00;
+}
+
+.active {
+  background: #ff6f00;
+  color: white;
+  border-color: #ff6f00;
+}
+
+/* Section 1 - Grid */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  /* background-color: #e65c00; */
+  margin: 20px;
+}
+
+.card {
+  /* border: 1px solid #b52121; */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 10px;  
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  max-width: 200px;
+  height: 140px;
+  object-fit: contain;
+  
+}
+
+.card p {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Section 2 - Slider */
+.sliderSection {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.sliderWrapper {
+  display: flex;
+   align-items: center;
+  justify-content: center; 
+  gap: 10px;
+  z-index: 2;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.moreLink {
+  color: #c90e0e; /* red accent */
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.moreLink:hover {
+  text-decoration: underline;
+}
+
+
+
+.sliderCard {
+  width: 300px;
+  max-width: 350px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+  /* padding: 20px; */
+}
+
+.sliderCard img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.sliderCard p {
+  font-size: 16px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+.navBtn {
+  background: white;       /* solid black background */
+  border: none;            /* remove border */
+  color: black;            /* arrow icon color */
+  font-size: 28px;         /* arrow size */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;      /* round shape */
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;           /* center arrow */
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+/* .navBtn:hover {
+  background: #e65c00;
+} */
+.navBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+
+/* Large tablets & small desktops (1024px) */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 24px;
+  }
+  .subtitle {
+    font-size: 15px;
+  }
+  .sliderCard {
+    min-width: 220px;
+    max-width: 260px;
+  }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  .card img {
+    height: 120px;
+  }
+  .sliderCard {
+    min-width: 210px;
+    max-width: 220px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+/* Mobile Landscape (425px) */
+@media (max-width: 425px) {
+  .filterButtons button {
+    min-width: 70px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sliderCard {
+    min-width: 160px;
+    max-width: 180px;
+  }
+  .sliderCard img {
+    height: 120px;
+  }
+  .title {
+    font-size: 22px;
+  }
+}
+
+/* Small Mobile (375px) */
+@media (max-width: 375px) {
+  .title {
+    font-size: 20px;
+  }
+  .gridContainer {
+   grid-template-columns: repeat(2, 1fr);
+  }
+  .sliderCard {
+    min-width: 140px;
+    max-width: 160px;
+  }
+  .sliderCard img {
+    height: 110px;
+  }
+}
+
+/* Extra Small (325px) */
+@media (max-width: 325px) {
+  .filterButtons {
+    gap: 6px;
+  }
+  .filterButtons button {
+    min-width: 55px;
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+   .sliderCard {
+    min-width: 230px;
+    max-width: 220px;
+  }
+  .sliderCard img {
+    height: 100px;
+  }
+  .title {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,107 @@
+.footer {
+  background-color: #232f3e;
+  color: white;
+  font-size: 14px;
+  line-height: 1.6;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Back to top */
+.backToTop {
+  text-align: center;
+  padding: 12px;
+  background-color: #37475a;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.backToTop:hover {
+  background-color: #0a68db;
+}
+
+/* Footer Links */
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 30px 32px;
+  border-bottom: 1px solid #4b5563;
+}
+
+.footerLinks h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.footerLinks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLinks li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+   transition: transform 0.25s ease, color 0.25s ease;
+   
+}
+
+.footerLinks li:hover {
+  color: #104ec8;
+     transform: scale(1.1);
+}
+
+
+.footerLinks a {
+  color: inherit;
+  text-decoration: none;
+}
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
+/* Bottom Bar */
+.bottomBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  padding: 16px 32px;
+  background-color: #131a22;
+  font-size: 12px;
+  gap: 15px;
+}
+
+.logo {
+  font-weight: 600;
+}
+
+.languageSelector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.languageSelector select {
+  background-color: #232f3e;
+  border: 1px solid #6b7280;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+}
+
+/* Copyright */
+.copyRight {
+  text-align: center;
+  font-size: 12px;
+  /* padding: 12px; */
+  background-color: #131a22;
+  /* border-top: 1px solid #374151; */
+}
+
+/* Responsive tweaks */
+@media (min-width: 768px) {
+  .bottomBar {
+    flex-direction: row;
+  }
+}

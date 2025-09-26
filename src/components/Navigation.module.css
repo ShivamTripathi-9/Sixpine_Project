@@ -1,0 +1,180 @@
+.menuBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  z-index: 100;
+}
+
+.menuList {
+  display: flex;
+  flex-wrap: wrap; /* ✅ responsive without scroll */
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.menuItem {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  padding: 6px 10px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.menuItem:hover {
+  color: orangered;
+}
+
+.arrow {
+  margin-left: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 160px;
+  padding: 8px 0;
+  list-style: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 9999;
+  /* display: none; */
+}
+
+.dropdown li {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background: #f1f1f1;
+}
+
+
+/* 📏 Large screens (≥1024px) */
+
+/* Large screens ≥1024px */
+@media (min-width: 1024px) {
+  .menuItem { font-size: 16px; padding: 6px 10px; }
+  .menuList { gap: 0; flex-wrap: nowrap; }
+  .dropdown { min-width: 160px; top: 100%; left: 0; }
+}
+
+/* Tablet ≤1024px */
+@media (max-width: 1024px) {
+  .menuItem { font-size: 15px; padding: 6px 8px; }
+  .menuList { gap: 8px; flex-wrap: nowrap; scrollbar-width: none; justify-content: flex-start; }
+  .menuBar::-webkit-scrollbar { display: none; }
+  .dropdown { min-width: 140px; }
+}
+
+
+/* Mobile ≤768px */
+@media (max-width: 768px) {
+  .menuItem { font-size: 15px; padding: 6px 8px; position: relative; }
+  .menuList { gap: 8px; flex-wrap: nowrap; justify-content: flex-start; overflow: visible;
+  white-space: nowrap; flex-wrap: wrap;  justify-content:center; }
+  .menuBar { overflow-x: auto; overflow: visible; }
+  .menuBar::-webkit-scrollbar { display: none; }
+
+  .dropdown {
+    position: absolute;   /* ✅ 768px par bhi absolute hi rakho */
+    top: 100%;
+    left: 0;
+    min-width: 140px;
+    /* background: #cb1414; */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 9999;        /* ✅ image ke upar */
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  /* .menuBar,  */
+/* .menuList,  */
+.menuItem {
+  /* position: relative; */
+  /* z-index: 10000;   */
+  overflow: visible; 
+}
+}
+/* 📱 Mobile Medium (≤425px) */
+@media (max-width: 425px) {
+  .menuItem {
+    font-size: 12px;
+    /* padding: 5px 6px; */
+  }
+  .menuList {
+    gap: 10px;
+    justify-content: start;
+  }
+  .dropdown {
+    top: 28px;
+    left: 5px;
+    /* right: 5px; */
+    min-width: 200px;
+  }
+}
+
+/* 📱 Small Mobile (≤375px) */
+@media (max-width: 375px) {
+  .menuItem {
+    font-size: 13px;
+    padding: 4px 5px;
+  }
+  .menuList {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+   .arrow
+  {
+    font-size: 10px;
+  }
+  .dropdown {
+    top: 30px;
+    left: 4px;
+    right: 4px;
+    min-width: 150px;
+  }
+}
+
+/* 📱 Extra Small Mobile (≤325px) */
+@media (max-width: 325px) {
+  .menuItem {
+    font-size: 12px;
+    padding: 3px 4px;
+  }
+  .menuList {
+    gap: 6px;
+    justify-content: center;
+  }
+  .arrow
+  {
+    font-size: 10px;
+  }
+  .dropdown {
+    top: 25px;
+    left: 3px;
+    right: 3px;
+    min-width: 150px;
+  }
+}
