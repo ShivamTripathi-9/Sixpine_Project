@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './pressrelease.module.css';
+import styles from './PressRelease.module.css';
 
 const PressRelease = () => {
   return (
