@@ -4,8 +4,8 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.7;
   color: #333;
-  padding: 40px 20px;
-  max-width: 70%;
+  padding: 30px 25px;
+  max-width: 100%;
   margin: 0 auto;   
   /* text-align: center; */
 }
@@ -101,7 +101,7 @@
     padding: 0 20px ;
   }
   .heading {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
   .subheading {
     font-size: 1.2rem;

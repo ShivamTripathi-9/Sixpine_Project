@@ -1,12 +1,12 @@
 /* Container */
 .authSixpine {
-  padding: 60px 20px;
+  padding: 10px 20px;
   background-color: #f6f6f6;
   color: #212121;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

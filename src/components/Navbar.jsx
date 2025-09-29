@@ -7,7 +7,7 @@ import styles from "./Navbar.module.css"; // Import the CSS module
 const SixpineHeader = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [searchQuery, setSearchQuery] = useState('');
-  const location = useLocation(); // Get current location
+  const location = useLocation(); 
 
   return (
     <div className={styles.sixpineHeader}>
@@ -66,7 +66,11 @@ const SixpineHeader = () => {
         <div className={styles.rightOptions}>
           {/* Account */}
          <div className={styles.optionItem}>
-            <User className={styles.optionIcon} />
+
+            <Link to="/login" className={styles.linkIcon}>
+  <User className={styles.optionIcon} color="#fff" />
+</Link>
+
             <Link
                 to="/login"
                 className={`${styles.optionText} ${location.pathname === "/login" ? styles.active : ""}`}

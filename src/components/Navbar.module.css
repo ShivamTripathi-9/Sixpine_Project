@@ -201,6 +201,11 @@
 .optionIcon {
   width: var(--icon-size);
   height: var(--icon-size);
+  color: inherit;    
+  text-decoration: none;
+}
+a {
+  text-decoration: none;  /* saare links ka underline hatao */
 }
 
 .optionText {
