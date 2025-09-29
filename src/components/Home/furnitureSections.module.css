@@ -1,29 +1,31 @@
 .furnitureContainer {
   width: 100%;
-  /* margin: auto; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
+  /* max-width: 1200px;  */
+ 
 }
 
 .section {
-  /* margin: 40px 0; */
+  margin-bottom: 10px; 
 }
 
 .sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* margin-bottom: 20px; */
 }
 
 .sectionHeader h2 {
-  font-size: 22px;
+  font-size: 28px; /* Slightly larger for prominence */
   margin: 0;
   padding: 0 20px;
 }
 
 .sectionHeader p {
-  font-size: 14px;
-  color: gray;
+  font-size: 16px; /* Slightly larger */
+  color: #555; /* Darker gray for better readability */
   margin: 5px 0 0;
   padding: 0 20px;
 }
@@ -32,20 +34,21 @@
   background: none;
   border: 1px solid #0077cc;
   color: #0077cc;
-  font-size: 14px;
+  font-size: 15px; /* Slightly larger text */
   cursor: pointer;
   border-radius: 6px;
-  width: 100px;   /* fixed width */
-  height: 36px;   /* fixed height */
+  width: 120px;   /* Adjusted width */
+  height: 40px;   /* Adjusted height */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.3s;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
 }
 
 .viewBtn:hover {
   background: #0077cc;
   color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 119, 204, 0.2); /* Subtle shadow on hover */
 }
 
 
@@ -59,22 +62,30 @@
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 50%;
-  font-size: 26px;
+  font-size: 30px; /* Larger arrows */
   font-weight: bold;
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  width: 35px; /* Larger buttons */
+  height: 35px; /* Larger buttons */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 5px;
+  margin: 0 10px; /* More margin */
   z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.navBtn:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  transform: scale(1.05);
 }
 
 /* Shared Product List */
 .productList {
   display: flex;
-  gap: 16px;
+  gap: 16px; /* Increased gap between cards */
   margin-top: 20px;
   padding-bottom: 20px;
   flex: 1;
@@ -84,163 +95,260 @@
 .scroll {
   overflow-x: auto;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* Ensure snapping to cards */
+  -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
 }
 
 .scroll::-webkit-scrollbar {
-  height: 0px;
+  display: none;
 }
 
 .scroll::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 4px;
 }
+.scroll::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
 
 /* Grid (View All) Mode */
 .grid {
+  display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
-  justify-content: flex-start;
-}
-
-.grid .productCard {
-  flex: 1 1 calc(20% - 16px); 
-  max-width: calc(20% - 16px);
+  justify-content: flex-start; /* Align items to start */
+  gap: 16px; /* Consistent gap with scroll mode */
 }
 
 /* Card Design */
 .productCard {
-  border: 1px solid #fff;
-  border-radius: 10px;
-  padding: 5px;
+  width: 325px; /* Default width for cards */
   background: #fff;
-  transition: 0.3s;
-  width: 260px; 
-  flex-shrink: 0;  
-  cursor: pointer; 
-   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+  border-radius: 12px; /* Slightly more rounded corners */
+  padding: 15px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* More prominent shadow */
+  flex-shrink: 0;
+  scroll-snap-align: start; /* Snap to start of card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute content nicely */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
 .productCard:hover {
-  transform: scale(1.05); /* halka zoom popup effect */
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
-  z-index: 5; /* ensure popup upar dikhai de */
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  z-index: 5;
 }
 
 .productCard img {
   width: 100%;
-  height: 180px;
+  height: 150px; /* Increased image height */
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .productCard h3 {
-  font-size: 16px;
+  font-size: 18px; /* Larger title */
   margin: 10px 0 4px;
-  font-weight: 600;
+  font-weight: 700; /* Bolder title */
+  color: #333;
 }
 
 .subtitle {
-  font-size: 13px;
-  color: gray;
+  font-size: 14px; /* Slightly larger subtitle */
+  color: #777;
   margin-top: 2px;
 }
 
 /* Price Styling */
 .priceBlock {
-  margin-top: 6px;
+  margin-top: 10px; /* More spacing */
   display: flex;
-  gap: 8px;
-  align-items: center;
+  gap: 10px; /* Increased gap */
+  align-items: baseline; /* Align prices to their baseline */
 }
 
 .discount {
-  color: green;
-  font-size: 13px;
-  font-weight: 600;
+  color: #28a745; /* Standard green for discount */
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .current {
   font-weight: bold;
   color: #000;
-  font-size: 15px;
+  font-size: 18px; /* Larger current price */
 }
 
 .old {
   text-decoration: line-through;
-  font-size: 13px;
-  color: gray;
+  font-size: 14px;
+  color: #999; /* Lighter gray for old price */
 }
 
 /* Rating Styling */
 .rating {
-  margin-top: 6px;
-  font-size: 13px;
-  color: #444;
+  margin-top: 8px; /* More spacing */
+  font-size: 14px;
+  color: #555;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .starFilled {
-  color: #f4b400; /* Gold */
+  color: #ffc107; /* Standard gold star color */
 }
 
 .starEmpty {
-  color: #ddd;
+  color: #e0e0e0; /* Lighter gray for empty stars */
 }
-
 
 
 /* ------------------ ✅ RESPONSIVE BREAKPOINTS ------------------ */
 
-/* Large Desktop (≥1024px) - 5 cards */
-/* @media (min-width: 1024px) {
+/* Large Desktop (≥1200px) - 4 cards for grid */
+@media (min-width: 1200px) {
   .grid .productCard {
-    flex: 1 1 calc(20% - 16px);
-    max-width: calc(20% - 16px);
-  }
-} */
-
-/* Tablets (~768px) - 3 cards */
-@media (max-width: 1023px) and (min-width: 768px) {
-  .grid .productCard {
-    flex: 1 1 calc(33.33% - 16px);
-    max-width: calc(33.33% - 16px);
-  }
-  .productCard img {
-    height: 160px;
+    flex: 1 1 calc(25% - 15px); /* 4 cards per row, adjust gap */
+    max-width: calc(25% - 15px);
   }
 }
 
-/* Small Tablets & Large Phones (~425px) - 2 cards */
-@media (max-width: 767px) and (min-width: 426px) {
+/* Desktop (992px to 1199px) - 3 cards for grid */
+@media (min-width: 992px) and (max-width: 1199px) {
   .grid .productCard {
-    flex: 1 1 calc(50% - 16px);
-    max-width: calc(50% - 16px);
+    flex: 1 1 calc(33.33% - 13.33px); /* 3 cards per row */
+    max-width: calc(33.33% - 13.33px);
   }
-  .productCard img {
-    height: 150px;
+  .productCard {
+    width: auto; /* Allow flex to control width */
   }
 }
 
-/* Phones (≤425px) - 1 card */
-@media (max-width: 425px) {
+/* Tablets (768px to 991px) - 2 cards for grid */
+@media (min-width: 768px) and (max-width: 991px) {
   .grid .productCard {
-    flex: 1 1 100%;
-    max-width: 100%;
+    flex: 1 1 calc(50% - 10px); /* 2 cards per row */
+    max-width: calc(50% - 10px);
   }
-  .productCard img {
-    height: 140px;
+  .productCard {
+    width: auto; /* Allow flex to control width */
+  }
+  .sectionHeader h2 {
+    font-size: 24px;
+  }
+  .sectionHeader p {
+    font-size: 15px;
+  }
+  .navBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+}
+
+/* Small Tablets & Large Phones (481px to 767px) - 2 cards for grid, better scroll */
+@media (min-width: 481px) and (max-width: 767px) {
+  .grid .productCard {
+    flex: 1 1 calc(50% - 10px); /* 2 cards per row */
+    max-width: calc(50% - 10px);
+  }
+  .productCard {
+    width: auto;
   }
   .sectionHeader {
     flex-direction: column;
     align-items: flex-start;
   }
+  .sectionHeader h2, .sectionHeader p {
+    padding: 0 10px;
+  }
   .viewBtn {
-    width: 30%;
-    margin-top: 10px;
-   
-    
+    width: 100px;
+    margin: 10px 10px 0;
+  }
+  .navBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    margin: 0 5px;
+  }
+  .productList {
+    gap: 15px;
+  }
+  .productCard {
+    min-width: 280px; /* Ensure scroll cards are decent size */
   }
 }
 
+/* Phones (≤480px) - 1 card for grid */
+@media (max-width: 480px) {
+  .grid .productCard {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .productCard {
+    width: auto; /* Allow flex to control width */
+    margin: 0 auto; /* Center single card in grid view */
+  }
+  .furnitureContainer {
+    padding: 10px;
+  }
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  .sectionHeader h2 {
+    font-size: 22px;
+    padding: 0 10px;
+  }
+  .sectionHeader p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .viewBtn {
+    width: 100px;
+    height: 36px;
+    font-size: 14px;
+    margin: 10px 10px 0;
+  }
+  .productWrapper {
+    margin-top: 10px;
+  }
+  .navBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    margin: 0 2px;
+  }
+  .productList {
+    gap: 15px;
+    padding-bottom: 15px;
+  }
+  .productCard {
+    min-width: 85%; /* Make cards almost full width for better scrolling on small screens */
+    padding: 12px;
+  }
+  .productCard img {
+    height: 160px;
+  }
+  .productCard h3 {
+    font-size: 16px;
+  }
+  .subtitle {
+    font-size: 13px;
+  }
+  .current {
+    font-size: 16px;
+  }
+  .old, .discount, .rating {
+    font-size: 12px;
+  }
+}

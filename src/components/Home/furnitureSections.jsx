@@ -47,8 +47,7 @@ const data = {
       reviews: 14,
       image: "/images/Home/sofa.jpg",
     },
-
-     {
+    {
       id: 5,
       title: "Samvaad 3 Seater Sofa with Cane Accents",
       subtitle: "(Cotton, Jade Ivory)",
@@ -128,7 +127,7 @@ const data = {
       reviews: 51,
       image: "/images/Home/bed.jpg",
     },
-     {
+    {
       id: 12,
       title: "Samvaad 3 Seater Sofa with Cane Accents",
       subtitle: "(Cotton, Jade Ivory)",
@@ -180,7 +179,10 @@ const renderStars = (rating) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(
-      <span key={i} className={i <= rating ? styles.starFilled : styles.starEmpty}>
+      <span
+        key={i}
+        className={i <= rating ? styles.starFilled : styles.starEmpty}
+      >
         ★
       </span>
     );
@@ -192,12 +194,29 @@ const Section = ({ title, subtitle, products }) => {
   const [viewAll, setViewAll] = useState(false);
   const listRef = useRef(null);
 
+  const scrollAmount = () => {
+    if (listRef.current) {
+      const card = listRef.current.querySelector(`.${styles.productCard}`);
+      if (card) {
+        // Calculate card width + gap
+        const cardWidth = card.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(listRef.current).getPropertyValue('gap'));
+        return cardWidth + gap;
+      }
+    }
+    return 300; // Fallback scroll amount
+  };
+
   const scrollLeft = () => {
-    listRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    if (listRef.current) {
+      listRef.current.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+    }
   };
 
   const scrollRight = () => {
-    listRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    if (listRef.current) {
+      listRef.current.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+    }
   };
 
   return (
@@ -240,13 +259,9 @@ const Section = ({ title, subtitle, products }) => {
               <div className={styles.priceBlock}>
                 <span className={styles.discount}>{p.discount}</span>
                 <span className={styles.current}>{p.price}</span>
-                
+
                 <span className={styles.old}>{p.oldPrice}</span>
               </div>
-
-              {/* <div className={styles.rating}>
-                {renderStars(p.rating)} <span>({p.reviews})</span>
-              </div> */}
             </div>
           ))}
         </div>
