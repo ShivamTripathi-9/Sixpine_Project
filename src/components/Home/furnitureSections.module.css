@@ -59,8 +59,8 @@
 }
 
 .navBtn {
-  background: #fff;
-  border: 1px solid #ddd;
+  /* background: #fff; */
+  /* border: 1px solid #ddd; */
   border-radius: 50%;
   font-size: 30px; /* Larger arrows */
   font-weight: bold;
@@ -72,7 +72,7 @@
   justify-content: center;
   margin: 0 10px; /* More margin */
   z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   transition: all 0.2s ease;
 }
 
@@ -125,7 +125,7 @@
 .productCard {
   width: 325px; /* Default width for cards */
   background: #fff;
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
   border-radius: 12px; /* Slightly more rounded corners */
   padding: 15px;
   text-align: left;
@@ -163,11 +163,13 @@
   font-size: 14px; /* Slightly larger subtitle */
   color: #777;
   margin-top: 2px;
+  /* word-wrap: break-word; */
 }
 
 /* Price Styling */
 .priceBlock {
   margin-top: 10px; /* More spacing */
+
   display: flex;
   gap: 10px; /* Increased gap */
   align-items: baseline; /* Align prices to their baseline */
@@ -333,17 +335,20 @@
     padding-bottom: 15px;
   }
   .productCard {
-    min-width: 85%; /* Make cards almost full width for better scrolling on small screens */
-    padding: 12px;
+    min-width: 85%; 
+    /* padding: 120px; */
+    width: 100%;
   }
   .productCard img {
     height: 160px;
   }
   .productCard h3 {
     font-size: 16px;
+    word-wrap: break-word;
   }
   .subtitle {
     font-size: 13px;
+    word-wrap: break-word;
   }
   .current {
     font-size: 16px;
