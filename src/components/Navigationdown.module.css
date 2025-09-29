@@ -1,23 +1,25 @@
+/* Navigation.module.css - Refined */
 .menuBar {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
-  z-index: 1002;
+  z-index: 1000;
+  background-color: #f0f0f0;
+  margin-bottom: -20px;
 }
 
 .menuList {
   display: flex;
+  /* Use gap here for consistent spacing */
+  gap: 20px; /* Default gap for larger screens */
   flex-wrap: nowrap;
-  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   position: relative;
 }
@@ -25,14 +27,14 @@
 .menuItem {
   position: relative;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #333;
   padding: 6px 10px;
   transition: color 0.3s ease;
   white-space: nowrap;
   overflow: visible;
-  z-index: 1002;
+  z-index: 1001;
 }
 
 .menuItem:hover {
@@ -41,7 +43,7 @@
 
 .menuItem.active {
   color: orangered;
-  z-index: 1006;
+  z-index: 1005; /* Higher z-index for active item */
 }
 
 .arrow {
@@ -50,17 +52,18 @@
   font-weight: bold;
 }
 
+/* Dropdown styling */
 .dropdown {
   position: absolute;
-  top: 100%;
+  top: 100%; /* Position right below the menu item */
   left: 0;
   background: #fff;
   border-radius: 6px;
   min-width: 160px;
   padding: 8px 0;
   list-style: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 10000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Added a subtle shadow for better visibility */
+  z-index: 9999; /* Very high z-index for all dropdowns */
 }
 
 .dropdown li {
@@ -75,14 +78,16 @@
   background: #f1f1f1;
 }
 
+/* 📏 Large screens (≥1024px) */
 @media (min-width: 1024px) {
   .menuItem {
     font-size: 16px;
     padding: 0px 10px;
-    z-index: 1003;
+    z-index: 1000;
   }
   .menuList {
-    gap: 0;
+    /* Gap already defined, no need to override to 0 unless specifically desired */
+    /* gap: 0; */ /* If you truly want no gap on large screens, uncomment this */
     flex-wrap: nowrap;
     justify-content: center;
   }
@@ -91,23 +96,23 @@
     min-width: 180px;
     top: 100%;
     left: 0;
-    z-index: 10001;
+    z-index: 999;
   }
   .menuItem.active .dropdown {
-    z-index: 10002;
+    z-index: 10000;
   }
 }
 
+/* 📱 Tablet and smaller (≤1023px) */
 @media (max-width: 1023px) {
   .menuBar {
-    display: flex;
     justify-content: flex-start;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     padding: 12px 10px;
     -webkit-overflow-scrolling: touch;
-    z-index: 1002;
+    z-index: 1000;
     position: relative;
   }
 
@@ -115,25 +120,25 @@
   .menuBar { -ms-overflow-style: none; scrollbar-width: none; }
 
   .menuList {
-    display: flex;
-    gap: 20px;
+    /* Adjust gap for tablets */
+    gap: 20px; /* Keep consistent with default or adjust as needed */
     flex-wrap: nowrap;
     justify-content: flex-start;
     width: auto;
     padding-bottom: 5px;
     position: relative;
-    z-index: 1003;
+    z-index: 1001;
   }
 
   .menuItem {
     font-size: 15px;
     padding: 6px 8px;
     position: relative;
-    z-index: 1003;
+    z-index: 1001;
   }
 
   .menuItem.active {
-    z-index: 1006;
+    z-index: 1004;
   }
 
   .dropdown {
@@ -144,122 +149,112 @@
     min-width: 140px;
     max-width: calc(100vw - 20px);
     box-sizing: border-box;
-    z-index: 100000;
+    z-index: 9999;
   }
 
   .menuItem.active .dropdown {
-    z-index: 100001;
+    z-index: 99999;
   }
 }
 
+/* 📱 Mobile Medium (≤768px - used to be 425px, but 768px is more common for 'medium mobile') */
 @media (max-width: 768px) {
   .menuList {
-    gap: 15px;
+    gap: 15px; /* Slightly reduced gap for smaller screens */
   }
   .menuItem {
     font-size: 16px;
     padding: 5px 7px;
-    z-index: 1003;
+    z-index: 1002;
   }
-
   .menuItem.active {
-    z-index: 1007;
+    z-index: 1006;
   }
-
   .dropdown {
-    min-width: 85%;
+    min-width: 85%; /* Make it a bit wider on medium mobile */
     max-width: calc(100vw - 20px);
     margin-top: 7px;
-    z-index: 9999999;
+    z-index: 999999;
   }
-
   .menuItem.active .dropdown {
-    z-index: 99999999;
+    z-index: 9999999;
   }
 }
 
+/* 📱 Mobile Small (≤425px - typical small phone screens) */
 @media (max-width: 425px) {
   .menuList {
-    gap: 10px;
+    gap: 10px; /* Further reduced gap for smaller phones */
   }
   .menuItem {
     font-size: 14px;
     padding: 5px 7px;
-    z-index: 1002;
+    z-index: 1001;
   }
-
   .menuItem.active {
-    z-index: 1006;
+    z-index: 1005;
   }
-
   .dropdown {
-    min-width: 90%;
+    min-width: 90%; /* Wider for better touch target */
     max-width: calc(100vw - 20px);
     margin-top: 7px;
-    z-index: 9999999;
+    z-index: 999999;
   }
-
   .menuItem.active .dropdown {
-    z-index: 99999999;
+    z-index: 9999999;
   }
 }
 
+/* 📱 Mobile Extra Small (≤375px - common for older/smaller phones) */
 @media (max-width: 375px) {
   .menuList {
-    gap: 8px;
+    gap: 8px; /* Even smaller gap */
   }
   .menuItem {
     font-size: 13px;
     padding: 4px 6px;
-    z-index: 1002;
+    z-index: 1001;
   }
-
   .menuItem.active {
-    z-index: 1006;
+    z-index: 1005;
   }
-
   .arrow {
     font-size: 12px;
   }
-
   .dropdown {
-    min-width: 95%;
+    min-width: 95%; /* Almost full width for very small screens */
     max-width: calc(100vw - 20px);
     margin-top: 7px;
-    z-index: 9999999;
+    z-index: 999999;
   }
-
   .menuItem.active .dropdown {
-    z-index: 99999999;
+    z-index: 9999999;
   }
 }
 
-@media (max-width: 325px) {
+/* 📱 Mobile Ultra Small (≤320px - very rare now, but good to cover) */
+@media (max-width: 320px) {
   .menuList {
-    gap: 5px;
+    gap: 5px; /* Minimal gap */
   }
   .menuItem {
     font-size: 12px;
     padding: 3px 5px;
-    z-index: 1002;
+    z-index: 1001;
   }
-
   .menuItem.active {
-    z-index: 1006;
+    z-index: 1005;
   }
-
   .arrow {
     font-size: 10px;
   }
-
   .dropdown {
-    min-width: 98%;
-    max-width: calc(100vw - 10px);
+    min-width: 98%; /* Practically full width */
+    max-width: calc(100vw - 10px); /* A little less margin */
     margin-top: 5px;
-    z-index: 9999999;
+    z-index: 999999;
   }
-
   .menuItem.active .dropdown {
-    z-index: 99999999;
+    z-index: 9999999;
   }
 }

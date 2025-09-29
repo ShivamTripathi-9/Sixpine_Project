@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar.jsx";  
 import Navigation from "../components/Navigation.jsx"; 
+import NavigationDown from "../components/Navigationdown.jsx"; 
 import Footer from "../components/footer.jsx";
 import HeroSection from "../components/Home/heroSection.jsx";
 import HeroSection2 from "../components/Home/heroSection2.jsx";
@@ -16,7 +17,7 @@ const Homepage: React.FC = () => {
     <div>
       <Navbar />
       <Navigation />
-      {/* <Navigationdown /> */}
+      <NavigationDown />
       <HeroSection />
       <HeroSection2 />
       <HeroSection3 />

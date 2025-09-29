@@ -1,38 +1,39 @@
 import React, { useState } from 'react';
 import { MapPin, Search, User, Package, ShoppingCart } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 
-import "./Navbar.css";
+import styles from "./Navbar.module.css"; // Import the CSS module
 
 const SixpineHeader = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation(); // Get current location
 
   return (
-    <div className="sixpine-header">
+    <div className={styles.sixpineHeader}>
       {/* Main Header */}
-      <div className="main-header">
+      <div className={styles.mainHeader}>
         {/* Logo and Location */}
-        <div className="logo-location-section">
-          <div className="logo">
+        <div className={styles.logoLocationSection}>
+          <div className={styles.logo}>
             SIXPINE
           </div>
           
-          <div className="location-selector">
-            <MapPin className="location-icon" />
-            <span className="location-text">110001</span>
+          <div className={styles.locationSelector}>
+            <MapPin className={styles.locationIcon} />
+            <span className={styles.locationText}>110001</span>
           </div>
         </div>
 
         {/* Search Section */}
-        <div className="search-section">
-          <div className="search-container">
+        <div className={styles.searchSection}>
+          <div className={styles.searchContainer}>
             {/* Category Dropdown */}
-            <div className="category-dropdown-container">
+            <div className={styles.categoryDropdownContainer}>
               <select 
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="category-dropdown"
+                className={styles.categoryDropdown}
               >
                 <option>All Categories</option>
                 <option>Electronics</option>
@@ -44,51 +45,51 @@ const SixpineHeader = () => {
             </div>
             
             {/* Search Input with Button */}
-            <div className="search-input-container">
+            <div className={styles.searchInputContainer}>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Click to search..."
-                className="search-input"
+                className={styles.searchInput}
               />
               
               {/* Search Button */}
-              <button className="search-button">
-                <Search className="search-icon" />
+              <button className={styles.searchButton}>
+                <Search className={styles.searchIcon} />
               </button>
             </div>
           </div>
         </div>
 
         {/* Right Side Options */}
-        <div className="right-options">
+        <div className={styles.rightOptions}>
           {/* Account */}
-         <div className="option-item">
-      <User className="option-icon" />
-      <Link
-        to="/login"
-        className={`option-text ${location.pathname === "/login" ? "active" : ""}`}
-      >
-        Account
-      </Link>
-    </div>
+         <div className={styles.optionItem}>
+            <User className={styles.optionIcon} />
+            <Link
+                to="/login"
+                className={`${styles.optionText} ${location.pathname === "/login" ? styles.active : ""}`}
+            >
+                Account
+            </Link>
+          </div>
           
           {/* Returns & Orders */}
-          <div className="option-item">
-            <Package className="option-icon" />
-            <span className="option-text">Returns & Orders</span>
+          <div className={styles.optionItem}>
+            <Package className={styles.optionIcon} />
+            <span className={styles.optionText}>Returns & Orders</span>
           </div>
           
           {/* Cart */}
-          <div className="option-item cart-container">
-            <div className="cart-icon-container">
-              <ShoppingCart className="option-icon" />
-              <span className="cart-badge">
+          <div className={`${styles.optionItem} ${styles.cartContainer}`}>
+            <div className={styles.cartIconContainer}>
+              <ShoppingCart className={styles.optionIcon} />
+              <span className={styles.cartBadge}>
                 1
               </span>
             </div>
-            <span className="option-text">Cart</span>
+            <span className={styles.optionText}>Cart</span>
           </div>
         </div>
       </div>

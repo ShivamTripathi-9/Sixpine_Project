@@ -1,3 +1,4 @@
+/* heroSection2.module.css */
 .homepage {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -11,6 +12,8 @@
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 6px;
+  display: flex; /* make it flex */
+  flex-direction: column; /* stack vertically */
 }
 
 .card h3 {
@@ -19,43 +22,34 @@
   font-weight: 600;
 }
 
-.card {
-  background: #fff;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  display: flex;             /* make it flex */
-  flex-direction: column;    /* stack vertically */
-}
-
 .card a {
   display: inline-block;
-  margin-top: auto;          
+  margin-top: auto;
   font-size: 14px;
   color: #0073e6;
-  text-decoration: none;;
+  text-decoration: none;
+  align-self: flex-start; /* Ensures the link doesn't stretch and aligns to the start */
 }
 
 .card a:hover {
   text-decoration: underline;
 }
 
-
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+  margin-bottom: 10px; /* Added margin to separate grid from the "See more" link */
 }
 
 .item {
   text-align: left;
 }
 
-/* 🔥 Fix image size issue */
 .grid img {
   width: 100%;
-  height: 150px;           /* fixed height */
-  object-fit: contain;       /* crop and fit */
+  height: 150px; /* fixed height */
+  object-fit: contain; /* contain the image within the element's box while maintaining aspect ratio */
   border-radius: 4px;
   border: 1px solid #fafafa;
 }
@@ -67,7 +61,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
 
 .item span {
@@ -77,27 +70,27 @@
   color: #111;
 }
 
-
-/* 📱 RESPONSIVE BREAKPOINTS */
+/* RESPONSIVE BREAKPOINTS */
 
 /* 1024px (Laptop) */
 @media (max-width: 1024px) {
   .homepage {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for better layout on smaller laptops */
   }
   .grid img {
     height: 140px;
   }
 }
+
 /* 768px (Tablet) */
 @media (max-width: 768px) {
   .homepage {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Allowing 2 columns for smaller tablets if space permits */
     gap: 18px;
     padding: 18px;
   }
   .grid {
-    grid-template-columns:  repeat(2, 1fr);   /* 1 image per row */
+    grid-template-columns: repeat(2, 1fr); /* Keep 2 items per row in grid */
   }
   .grid img {
     height: 130px;
@@ -113,7 +106,7 @@
 /* 425px (Mobile Large) */
 @media (max-width: 425px) {
   .homepage {
-    grid-template-columns: 1fr;   /* full width card */
+    grid-template-columns: 1fr; /* full width card */
     gap: 15px;
     padding: 15px;
   }

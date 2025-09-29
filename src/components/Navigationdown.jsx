@@ -1,70 +1,154 @@
-import React, { useState } from "react";
-import "./Navigationdown.css";
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./Navigationdown.module.css";
 
-function NavbarMenudown() {
+function NavbarMenu() {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const menuBarRef = useRef(null);
 
-  // Menu with dropdown data
+  useEffect(() => {
+    const checkMobile = () => {
+      // Define your mobile breakpoint, e.g., 1023px
+      setIsMobile(window.innerWidth <= 1023);
+    };
+
+    checkMobile(); // Initial check
+    window.addEventListener("resize", checkMobile); // Listen for resize
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Handle scroll event to close dropdown
+  useEffect(() => {
+    const menuBar = menuBarRef.current;
+    
+    const handleScroll = () => {
+      if (activeMenu !== null) {
+        setActiveMenu(null); // Close dropdown on scroll
+      }
+    };
+
+    // Add scroll listener only for mobile screens
+    if (menuBar && isMobile) {
+      menuBar.addEventListener('scroll', handleScroll);
+    }
+
+    // Cleanup
+    return () => {
+      if (menuBar) {
+        menuBar.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [activeMenu, isMobile]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuBarRef.current && !menuBarRef.current.contains(event.target)) {
+        setActiveMenu(null);
+      }
+    };
+
+    // Add click outside listener only for mobile
+    if (isMobile) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside); // For touch devices
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMobile]);
+
+  // Function to toggle dropdown on click for mobile
+  const handleItemClick = (index) => {
+    if (isMobile) {
+      setActiveMenu(activeMenu === index ? null : index);
+    }
+  };
+
+  // Function for hover on desktop
+  const handleMouseEnter = (index, hasDropdown) => {
+    if (!isMobile && hasDropdown) {
+      setActiveMenu(index);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setActiveMenu(null);
+    }
+  };
+
   const menuItems = [
-    {
-      title: "All",
-      dropdown: ["Profile", "Orders", "Wishlist"],
+    { title: "Home",
+       dropdown: ["Hpme Page1", "HomePage2"],
     },
     {
-      title: "Sofa & Couches",
-      dropdown: ["Clothing", "Shoes", "Accessories"],
+      title: "Kitchen Home",
+      
     },
+    
+    { title: "Large Furniture" },
     {
-      title: "Sofa & Chairs",
-      dropdown: ["Electronics", "Books", "Home & Kitchen", "Toys"],
+      title: "Kitchen"
+      
     },
-    {
-      title: "Rocking Chairs",
-      dropdown: ["Recently Viewed", "Recommended"],
-    },
-    {
-      title: "Ottomans",
-      dropdown: ["Lightning Deals", "Clearance", "Coupons"],
-    },
-    {
-      title: "Beds & Sofa Cum Beds",
-      dropdown: ["Best Sellers", "Free E-books", "Kindle"],
-    },
-    {
-      title: "Luxury",
-      dropdown: ["Groceries", "Household Items"],
-    },
-     
+    { title: "Furniture" },
+    { title: "Home Decoration" },
+  
   ];
 
   return (
-    <div className="menu-bardown">
-      <ul className="menu-list">
-        {menuItems.map((menu, index) => (
-          <li
-            key={index}
-            className="menu-item"
-            onMouseEnter={() => setActiveMenu(index)}
-            onMouseLeave={() => setActiveMenu(null)}
-          >
-            {menu.title}{" "}
-            <span className="arrow">
-              {activeMenu === index ? "˄" : "˅"} {/* reverse icon */}
-            </span>
+    <div 
+      ref={menuBarRef}
+      className={styles.menuBar}
+    >
+      <ul className={styles.menuList}>
+        {menuItems.map((menu, index) => {
+          const hasDropdown = !!menu.dropdown;
+          const isActive = activeMenu === index;
 
-            {/* Dropdown */}
-            {activeMenu === index && (
-              <ul className="dropdown">
-                {menu.dropdown.map((subItem, i) => (
-                  <li key={i}>{subItem}</li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
+          return (
+            <li
+              key={index}
+              className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
+              onMouseEnter={() => handleMouseEnter(index, hasDropdown)}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => handleItemClick(index)} // Handle click for all items
+            >
+              {menu.title}
+
+              {hasDropdown && (
+                <span className={styles.arrow}>
+                  {isActive ? "˄" : "˅"}
+                </span>
+              )}
+
+              {/* Show dropdown only if it exists and is active */}
+              {hasDropdown && isActive && (
+                <ul className={styles.dropdown}>
+                  {menu.dropdown.map((subItem, i) => (
+                    <li 
+                      key={i}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent menu item click
+                        console.log(`Selected: ${subItem}`);
+                        setActiveMenu(null); // Close dropdown after selection
+                      }}
+                    >
+                      {subItem}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
 }
 
-export default NavbarMenudown;
+export default NavbarMenu;

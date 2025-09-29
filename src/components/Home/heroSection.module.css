@@ -1,46 +1,41 @@
-/* Hero.css */
+/* heroSection.module.css */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-
 }
 
-.hero-container {
+.heroContainer {
   font-family: 'Arial', sans-serif;
-  /* background-color: #860909; */
   padding: 20px 0;
   min-height: 70vh;
+  /* Lower z-index so the Navbar dropdown can appear on top */
+  position: relative; /* Needs position for z-index to work */
+  z-index: 10; /* Lower than your dropdown's z-index (which is usually very high, e.g., 9999) */
 }
 
-.hero-wrapper {
-  /* max-width: 1200px; */
+.heroWrapper {
   margin: 0 auto;
   padding: 0 10px;
-  /* background-color: #ea0c0c; */
 }
 
-.hero-grid {
+.heroGrid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
   height: 400px;
-  /* background-color: #357ABD; */
 }
 
 /* Main Carousel Styles */
-.main-carousel {
+.mainCarousel {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  /* transition: background-color 0.5s ease; */
-
 }
 
-.nav-arrow {
+.navArrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -58,36 +53,34 @@
   color: #333;
 }
 
-.nav-arrow:hover {
+.navArrow:hover {
   background-color: rgba(255, 255, 255, 1);
   transform: translateY(-50%) scale(1.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.nav-arrow-left {
+.navArrowLeft {
   left: 5px;
 }
 
-.nav-arrow-right {
+.navArrowRight {
   right: 5px;
 }
 
-.slide-content {
+.slideContent {
   display: flex;
   width: 100%;
   height: 100%;
-  /* align-items: center; */
   padding: 40px;
-    /* background-color: #FF6B35; */
 }
 
-.slide-text {
+.slideText {
   flex: 1;
   color: white;
   z-index: 1;
 }
 
-.slide-subtitle {
+.slideSubtitle {
   font-size: 18px;
   margin-bottom: 8px;
   font-weight: 300;
@@ -95,37 +88,37 @@
   margin: 0 0 10px 0;
 }
 
-.slide-title {
+.slideTitle {
   font-size: 48px;
   font-weight: 200;
   margin-bottom: 25px;
   line-height: 1.2;
   margin: 0 0 25px 0;
-   position: relative;
-  display: inline-block; 
-
+  position: relative;
+  display: inline-block;
 }
-.slide-title::after {
+
+.slideTitle::after {
   content: "";
   display: block;
-  width: 150px;           /* line ki length */
-  height: 3px;           /* line ki thickness */
-  background: #a19e9e;      /* line ka color */
-  margin-top: 10px;      /* title aur line ke beech gap */
+  width: 150px;
+  height: 3px;
+  background: #a19e9e;
+  margin-top: 10px;
 }
 
-.price-section {
+.priceSection {
   margin-bottom: 35px;
 }
 
-.starting-from {
+.startingFrom {
   font-size: 16px;
   margin-bottom: 10px;
   opacity: 0.9;
   margin: 0 0 10px 0;
 }
 
-.price-container {
+.priceContainer {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -140,53 +133,46 @@
 .asterisk {
   font-size: 40px;
   opacity: 0.8;
-  /* margin-left: 5px; */
 }
 
-.buy-now-btn {
+.buyNowBtn {
   background-color: rgba(255, 255, 255, 0.25);
   border: 2px solid rgba(255, 255, 255, 0.6);
   color: white;
   padding: 5px 20px;
   font-size: 16px;
-  /* font-weight: 00; */
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  /* letter-spacing: 0.5px; */
 }
 
-.buy-now-btn:hover {
+.buyNowBtn:hover {
   background-color: rgba(255, 255, 255, 0.35);
   border-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-2px);
 }
 
-.product-image {
+.productImage {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100%;
-  padding-left: 20px; */
 }
 
-.image-placeholder {
+.imagePlaceholder {
   width: 500px;
   height: 380px;
   border-radius: 50px;
   overflow: hidden;
-  /* border: 3px solid rgba(255, 255, 255, 0.3); */
-  /* background: rgba(255, 255, 255, 0.1); */
 }
 
-.product-img {
+.productImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.brand-logo {
+.brandLogo {
   position: absolute;
   bottom: 15px;
   left: 40px;
@@ -196,7 +182,7 @@
   font-weight: 500;
 }
 
-.slide-indicators {
+.slideIndicators {
   position: absolute;
   bottom: 20px;
   right: 40px;
@@ -224,27 +210,23 @@
 }
 
 /* Right Panels Styles */
-.right-panels {
+.rightPanels {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 /* Bedroom Panel */
-.bedroom-panel {
-  /* background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); */
-   background-image: url("/images/bedroom-img.jpg");
+.bedroomPanel {
+  background-image: url("/images/bedroom-img.jpg");
   border-radius: 15px;
-  padding: 20px ;
-  /* color: white; */
+  padding: 20px;
   position: relative;
   overflow: hidden;
-  /* height: 180px; */
-  background-size: contain;   /* ya contain */
-  /* background-position: center; */
+  background-size: contain;
 }
 
-.bedroom-content {
+.bedroomContent {
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -252,14 +234,13 @@
   position: relative;
 }
 
-.bedroom-text {
+.bedroomText {
   flex: 1;
   position: relative;
 }
 
-.special-deal-badge {
+.specialDealBadge {
   position: absolute;
-  /* top: -px; */
   left: -20px;
   background: linear-gradient(45deg, #FF6B35, #FF8C42);
   color: white;
@@ -270,19 +251,17 @@
   letter-spacing: 0.5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 2;
-
 }
 
-.upto-text {
+.uptoText {
   font-size: 14px;
-  /* margin-bottom: 8px; */
   opacity: 0.9;
   font-weight: bold;
   margin-top: 40px;
   color: white;
 }
 
-.discount-price {
+.discountPrice {
   font-size: 34px;
   font-weight: bold;
   margin-bottom: 5px;
@@ -290,7 +269,7 @@
   color: white;
 }
 
-.instant-discount {
+.instantDiscount {
   font-size: 12px;
   opacity: 0.85;
   margin-bottom: 20px;
@@ -298,7 +277,7 @@
   color: white;
 }
 
-.bedroom-buy-btn {
+.bedroomBuyBtn {
   background-color: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: white;
@@ -311,49 +290,24 @@
   letter-spacing: 0.5px;
 }
 
-.bedroom-buy-btn:hover {
+.bedroomBuyBtn:hover {
   background-color: rgba(29, 27, 27, 0.35);
   transform: translateY(-1px);
 }
 
-/* .bedroom-image {
-  position: absolute;
-  right: -10px;
-  top: 25px;
-  width: 140px;
-  height: 90px;
-  border-radius: 10px;
-  overflow: hidden;
-  opacity: 0.9;
-} */
-
-/* .bedroom-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
 /* Mattress Panel */
-.mattress-panel {
-     background-image: url("/images/bedroom-img.jpg");
-      background-size: contain;   /* ya contain */
+.mattressPanel {
+  background-image: url("/images/bedroom-img.jpg");
+  background-size: contain;
   background-position: center;
   border-radius: 15px;
   padding: 20px;
-  /* color: white; */
   position: relative;
   overflow: hidden;
-  /* height: 180px; */
-  /* background: linear-gradient(135deg, #2E8B57 0%, #3CB371 100%) */
-
-
-  
 }
 
-
-.ships-badge {
+.shipsBadge {
   position: absolute;
-  /* top:15px; */
   left: 0px;
   background: linear-gradient(45deg, #4A90E2, #357ABD);
   color: white;
@@ -368,7 +322,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.mattress-content {
+.mattressContent {
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -376,34 +330,29 @@
   padding-top: 35px;
 }
 
-.mattress-text {
+.mattressText {
   flex: 1;
 }
 
-.mattress-title {
+.mattressTitle {
   font-size: 24px;
   font-weight: bold;
-  /* margin-bottom: 8px; */
   margin: 10px 0 0px 0;
   letter-spacing: 1px;
-
-  
 }
 
-.mattress-subtitle {
+.mattressSubtitle {
   font-size: 12px;
   opacity: 0.85;
-  /* margin-bottom: 18px; */
   margin: 0 0 18px 0;
   font-weight: 400;
-  
 }
 
-.mattress-price-section {
+.mattressPriceSection {
   /* margin-bottom: 10px; */
 }
 
-.starting-text {
+.startingText {
   font-size: 12px;
   opacity: 0.8;
   display: block;
@@ -411,47 +360,32 @@
   position: relative;
   font-weight: 600;
 }
-.starting-text::before {
+
+.startingText::before {
   content: "";
   display: block;
-  width: 70px;        
-  height: 1px;        
-  background: #aba8a8;   
-  margin-bottom: 6px; 
+  width: 70px;
+  height: 1px;
+  background: #aba8a8;
+  margin-bottom: 6px;
 }
-.mattress-price {
+
+.mattressPrice {
   font-size: 26px;
   font-weight: bold;
   margin-bottom: 10px;
   line-height: 1;
 }
 
-.free-delivery {
+.freeDelivery {
   font-size: 12px;
   opacity: 0.75;
   font-weight: 400;
   font-weight: 600;
 }
-/* 
-.mattress-image {
-  position: absolute;
-  right: -5px;
-  bottom: 15px;
-  width: 120px;
-  height: 70px;
-  border-radius: 8px;
-  overflow: hidden;
-  opacity: 0.85;
-}
-
-.mattress-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
 
 /* Customer Support Buttons */
-.support-buttons {
+.supportButtons {
   position: fixed;
   right: 10px;
   top: 50%;
@@ -462,111 +396,103 @@
   z-index: 1000;
 }
 
-.support-btn {
+.supportBtn {
   border-radius: 12px 0 0 12px;
   padding: 5px 10px;
   color: white;
   text-align: center;
   cursor: pointer;
-  /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); */
   transition: all 0.3s ease;
-  /* width: 85px; */
-  /* backdrop-filter: blur(10px); */
 }
 
-.support-btn:hover {
+.supportBtn:hover {
   transform: scale(1.05) translateY(.5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.phone-btn {
+.phoneBtn {
   background: linear-gradient(135deg, #FF6B35, #FF8C42);
 }
 
-.expert-btn {
+.expertBtn {
   background: linear-gradient(135deg, #4A90E2, #357ABD);
 }
 
-.support-icon {
+.supportIcon {
   margin-bottom: px;
   display: flex;
   justify-content: center;
 }
 
-.support-text {
+.supportText {
   font-size: 12px;
   font-weight: bold;
   line-height: 1.2;
 }
 
-.support-text div:first-child {
+.supportText div:first-child {
   margin-bottom: 2px;
 }
-
 
 /* -------------------- Responsive -------------------- */
 
 /* ✅ Laptop & Large Tablets (≤1024px) */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1.5fr 1fr; gap: 15px; }
-  .slide-title { font-size: 42px; }
-  .product-image { padding-left: 10px; }
-  .image-placeholder { width: 100%; height: 70%; }
+  .heroGrid { grid-template-columns: 1.5fr 1fr; gap: 15px; }
+  .slideTitle { font-size: 42px; }
+  .productImage { padding-left: 10px; }
+  .imagePlaceholder { width: 100%; height: 70%; }
 }
 
 /* ✅ Tablets (≤768px) */
 @media (max-width: 768px) {
-  .hero-grid { grid-template-columns: 1fr; height: auto; gap: 15px; }
-  .slide-content { padding:30px 45px; flex-direction: row; text-align: left; }
-  .slide-title { font-size: 34px; }
+  .heroGrid { grid-template-columns: 1fr; height: auto; gap: 15px; }
+  .slideContent { padding:30px 45px; flex-direction: row; text-align: left; }
+  .slideTitle { font-size: 34px; }
   .price { font-size: 32px; }
-  .image-placeholder { width: 350px; height: 250px; margin: auto; }
-  .right-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-  .support-buttons { display: none; }
+  .imagePlaceholder { width: 350px; height: 250px; margin: auto; }
+  .rightPanels { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  .supportButtons { display: none; }
 }
 /* ✅ Mobiles (≤425px) */
 @media (max-width: 425px) {
-  .slide-title { 
-    font-size: 26px; 
+  .slideTitle {
+    font-size: 26px;
     line-height: 1.2;
   }
-  .slide-subtitle {
+  .slideSubtitle {
     font-size: 14px;
   }
-  .slide-content { 
-    /* padding: 15px;  */
-    flex-direction: row; 
-    text-align: left; 
-    /* gap: 15px; */
+  .slideContent {
+    flex-direction: row;
+    text-align: left;
   }
-  .slide-text {
+  .slideText {
     flex: none;
   }
-  .price { 
+  .price {
     font-size: 24px;
-    
   }
-  .buy-now-btn { 
-    font-size: 14px; 
+  .buyNowBtn {
+    font-size: 14px;
     padding: 0px 14px;
-    margin-bottom: 10px; 
-
+    margin-bottom: 10px;
   }
-  .image-placeholder { 
-    width: 180px; 
-    height: 180px; 
+  .imagePlaceholder {
+    width: 180px;
+    height: 180px;
   }
-  .right-panels { 
-    grid-template-columns: 1fr; 
+  .rightPanels {
+    grid-template-columns: 1fr;
     gap: 12px;
   }
-  .discount-price { 
-    font-size: 24px; 
+  .discountPrice {
+    font-size: 24px;
   }
-  .mattress-title { 
-    font-size: 18px; 
+  .mattressTitle {
+    font-size: 18px;
   }
-  .bedroom-buy-btn {
+  .bedroomBuyBtn {
     font-size: 10px;
     padding: 6px 12px;
   }
@@ -574,48 +500,43 @@
 
 
 @media (max-width: 375px) {
-  .slide-title { 
-    font-size: 20px; 
-    /* line-height: 1.2; */
+  .slideTitle {
+    font-size: 20px;
   }
-  .slide-subtitle {
+  .slideSubtitle {
     font-size: 12px;
   }
-  .slide-content { 
-    /* padding: 15px;  */
-    flex-direction: row; 
-    text-align: left; 
-    /* gap: 15px; */
+  .slideContent {
+    flex-direction: row;
+    text-align: left;
   }
-  .slide-text {
+  .slideText {
     flex: none;
   }
-  .price { 
+  .price {
     font-size: 20px;
-    
   }
-  .buy-now-btn { 
-    font-size: 14px; 
+  .buyNowBtn {
+    font-size: 14px;
     padding: 0px 14px;
-    margin-bottom: 10px; 
-
+    margin-bottom: 10px;
   }
-  .image-placeholder { 
-    width: 150px; 
+  .imagePlaceholder {
+    width: 150px;
     height: 150px;
-    border-radius: 10%; 
+    border-radius: 10%;
   }
-  .right-panels { 
-    grid-template-columns: 1fr; 
+  .rightPanels {
+    grid-template-columns: 1fr;
     gap: 12px;
   }
-  .discount-price { 
-    font-size: 24px; 
+  .discountPrice {
+    font-size: 24px;
   }
-  .mattress-title { 
-    font-size: 18px; 
+  .mattressTitle {
+    font-size: 18px;
   }
-  .bedroom-buy-btn {
+  .bedroomBuyBtn {
     font-size: 10px;
     padding: 6px 12px;
   }
@@ -623,31 +544,30 @@
 
 /* ✅ Extra Small Mobiles (≤325px) */
 @media (max-width: 325px) {
-  .slide-title { 
-    font-size: 18px; 
+  .slideTitle {
+    font-size: 18px;
   }
-  .slide-subtitle {
+  .slideSubtitle {
     font-size: 10px;
   }
-  .price { 
-    font-size: 28px; 
+  .price {
+    font-size: 28px;
   }
-  .buy-now-btn { 
-    font-size: 12px; 
-    /* padding: 5px 10px;  */
+  .buyNowBtn {
+    font-size: 12px;
   }
-  .image-placeholder { 
-    width: 110px; 
-    height: 110px; 
+  .imagePlaceholder {
+    width: 110px;
+    height: 110px;
     display: none;
   }
-  .discount-price { 
-    font-size: 20px; 
+  .discountPrice {
+    font-size: 20px;
   }
-  .mattress-title { 
-    font-size: 16px; 
+  .mattressTitle {
+    font-size: 16px;
   }
-  .bedroom-buy-btn {
+  .bedroomBuyBtn {
     font-size: 9px;
     padding: 5px 10px;
   }
