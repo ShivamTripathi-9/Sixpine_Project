@@ -79,7 +79,7 @@
 /* Tablets / small screens */
 @media (max-width: 768px) {
   .main {
-    padding: 0 20px ;
+    padding:20px ;
   }
   .heading {
     font-size: 1.8rem;
@@ -98,7 +98,7 @@
 /* Mobile / extra small screens */
 @media (max-width: 480px) {
   .main {
-    padding: 0 20px ;
+    padding:20px ;
   }
   .heading {
     font-size: 1.3rem;
