@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar.jsx";  
 import Navigation from "../components/Navigation.jsx";
+import NavigationDown from "../components/Navigationdown.jsx";
 import Footer from "../components/footer.jsx";
 import Productdetails from "../components/Products_Details/productdetails.jsx";
 import ProductInformation from "../components/Products_Details/productInformation.jsx";
@@ -17,7 +18,7 @@ const Product_DetailsPage: React.FC = () => {
     <div>
       <Navbar />
       <Navigation />
-      {/* <Navigationdown /> */}
+      <NavigationDown />
       <Productdetails/>
 
      <Productdetails_Slider2/>
