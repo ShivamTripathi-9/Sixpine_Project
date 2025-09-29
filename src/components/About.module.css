@@ -1,21 +1,19 @@
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
   padding: 0 15px;
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
 }
 
 .row {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
 }
 
-.colLg10 {
-  width: 100%;
-  max-width: 83.333333%; /* equivalent to col-lg-10 */
-}
+
 
 /* About section styles */
 .aboutSixpine {

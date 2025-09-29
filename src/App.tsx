@@ -15,7 +15,12 @@ import FeedbackPage from "./pages/FeedbackPage.tsx";
 import DataRequestPage from "./pages/DataRequestPage.tsx";
 import CommunicationPreferencesPage from "./pages/CommunicationPreferencesPage.tsx";
 import LoginSecurityPage from "./pages/LoginSecurityPage.tsx";
-import EmailSubscriptionsPage from "./pages/EmailSubscriptionsPage.tsx"
+import EmailSubscriptionsPage from "./pages/EmailSubscriptionsPage.tsx";
+import SupplyPage from "./pages/SupplyPage.tsx";
+import Recalls_product from "./pages/Recalls_product _safety_alerts_Page.tsx";
+import PurchaseProtectionPage from "./pages/PurchaseProtectionPage.tsx";
+import SixPineApp from "./pages/SixpineAppPage.tsx";
+import AdvertisePage from "./pages/AdvertisePage.tsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -47,7 +52,13 @@ function App() {
          <Route path="/email" element={<EmailSubscriptionsPage/>} />
         <Route path="/advertising-preferece" element={<AdvertisingPreferecePage />} />
         <Route path="/close-your-sixpine-account" element={<CloseYourSixpineAccountPage />} />
-         <Route path="/communication-preferences" element={<CommunicationPreferencesPage />} />
+        <Route path="/communication-preferences" element={<CommunicationPreferencesPage />} />
+        <Route path="/supply" element={<SupplyPage />} />
+        <Route path="/recalls_product" element={<Recalls_product/>} />
+        <Route path="/purchaseProtection" element={<PurchaseProtectionPage/>} />
+        <Route path="/your-app" element={<SixPineApp/>} />
+        <Route path="/advertise" element={<AdvertisePage/>} />
+
       </Routes>
     </Router>
   );

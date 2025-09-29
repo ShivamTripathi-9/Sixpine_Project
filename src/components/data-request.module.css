@@ -1,8 +1,8 @@
-.container {
-  max-width: 80%;
+.Datacontainer {
+  max-width: 100%;
   margin: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
+  padding:60px 30px;
   /* color: #222; */
 }
 
@@ -93,9 +93,9 @@
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-.container {
+.Datacontainer {
   max-width: 100%;
- padding: 20px;
+ padding: 60px 20px;
 }
 
   .card {

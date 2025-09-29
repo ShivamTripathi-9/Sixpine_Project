@@ -1,16 +1,15 @@
-
-
 .main {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.7;
   color: #333;
   padding:30px;
+  
 }
 
-.careerSection {
-  /* max-width: 1000px; */
+/* .safetySection {
+  max-width: 1000px;
   margin: 0 auto;
-}
+} */
 
 .heading {
   font-size: 2.2rem;
@@ -24,7 +23,7 @@
   font-weight: 600;
   margin-top: 30px;
   margin-bottom: 10px;
-  color: #104ec8; /* highlight with theme color */
+  color: #104ec8;
 }
 
 .text {
@@ -45,6 +44,15 @@
   margin-bottom: 8px;
 }
 
+.contact a {
+  color: #104ec8;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
 .signature {
   font-size: 1.05rem;
   font-weight: 500;
@@ -57,10 +65,7 @@
 /* Laptops / medium screens */
 @media (max-width: 1024px) {
   .main {
-    /* padding: 30px 20px; */
-    margin: 0;
-    padding: 25px;
-    margin-top: 25px;
+    padding: 30px 20px;
   }
   .heading {
     font-size: 2rem;
@@ -68,7 +73,7 @@
   .subheading {
     font-size: 1.4rem;
   }
-  .text, .list li {
+  .text, .list li, .contact {
     font-size: 0.98rem;
   }
   .signature {
@@ -79,7 +84,7 @@
 /* Tablets / small screens */
 @media (max-width: 768px) {
   .main {
-    padding: 0 20px ;
+    padding:20px ;
   }
   .heading {
     font-size: 1.8rem;
@@ -87,7 +92,7 @@
   .subheading {
     font-size: 1.3rem;
   }
-  .text, .list li {
+  .text, .list li, .contact {
     font-size: 0.95rem;
   }
   .signature {
@@ -98,7 +103,7 @@
 /* Mobile / extra small screens */
 @media (max-width: 480px) {
   .main {
-    padding: 0 20px ;
+   padding:20px ;
   }
   .heading {
     font-size: 1.6rem;
@@ -108,7 +113,7 @@
     margin-top: 20px;
     margin-bottom: 8px;
   }
-  .text, .list li {
+  .text, .list li, .contact {
     font-size: 0.9rem;
     margin-bottom: 6px;
   }

@@ -1,11 +1,12 @@
-import React from "react";
+  import React from "react";
 import Navbar from "../components/Navbar.jsx";  
 import Navigation from "../components/Navigation.jsx";
 import NavigationDown from "../components/Navigationdown.jsx";
 
+import Recalls_product from "../components/Recalls_product _safety_alerts.jsx";
 
 import Footer from "../components/footer.jsx";
-import Career from "../components/career.jsx";
+
 
 
 
@@ -16,7 +17,9 @@ const CareerPage: React.FC = () => {
       <Navbar />
       <Navigation />
       <NavigationDown />
-      <Career />
+
+   <Recalls_product/>
+     
       
 
   

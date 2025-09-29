@@ -75,7 +75,7 @@ const LoginSecurity = () => {
     );
 
     return (
-        <div className={styles.container}>
+        <div className={styles.logincontainer}>
             <div className={styles.header}>
                 <a href="/your-account">Your Account</a> / <a href="/membership-plans">Membership Plans</a>
             </div>

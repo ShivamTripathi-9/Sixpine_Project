@@ -1,16 +1,14 @@
-/* productslider.module.css */
 .container {
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   padding: 20px;
   background: #fff;
   color: #222;
-   
+  top: 20px;
 }
 
 /* Slider header: title (left) and page controls (right) */
 .sliderSection {
   margin-bottom: 28px;
-  
 }
 
 .sliderHeader {
@@ -38,39 +36,30 @@
   margin-right: 6px;
 }
 
-/* small page arrows next to "Page X of Y" */
-/* .smallArrow {
-  background: #f5f5f5;
-  border: 1px solid #e6e6e6;
-  padding: 6px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e74c3c;
-}
-.smallArrow svg {
-  font-size: 14px;
-} */
-
 /* Slider wrapper & center big arrows */
 .sliderWrapper {
   position: relative;
-  overflow: hidden;
+  /* Removed overflow: hidden; as we need scrollWidth */
 }
 
 .slider {
   display: flex;
-  /* gap: 20px; */
-  overflow-x: auto;
-  /* padding: 10px 56px; */
-  /* scroll-behavior: smooth; */
-  -webkit-overflow-scrolling: touch;
- 
-
+  /* Adjust gap or remove if you want cards flush, scroll-snap handles spacing */
+  gap: 20px; /* Space between cards */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* Essential for snapping to individual cards */
+  padding: 10px 0; /* Vertical padding, no horizontal padding here */
+  /* transition: transform 0.4s ease-in-out; /* Removed as scroll-behavior smooth handles it */
+  /* will-change: transform; */
 }
-.slider::-webkit-scrollbar { display: none; }
+.slider::-webkit-scrollbar {
+  display: none;
+} /* Hide scrollbar for aesthetics */
+.slider {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 /* big circular arrows (centered vertically) */
 .bigArrow {
@@ -85,29 +74,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: 0 6px 18px rgba(0,0,0,0.15); */
-  z-index: 5;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Added shadow for visibility */
+  z-index: 10; /* Increased z-index */
   border: none;
   cursor: pointer;
-  
 }
-/* .bigArrow.left { left: px; } */
-.bigArrow.right { right: -10px; }
-.bigArrow svg { font-size: 15px }
+.bigArrow.left {
+  left: -18px; /* Adjusted position to be outside but near */
+}
+.bigArrow.right {
+  right: -18px; /* Adjusted position to be outside but near */
+}
+.bigArrow svg {
+  font-size: 15px;
+}
 
 /* Product card layout */
 .productCard {
-   flex: 0 0 auto;      
-  width: 345px;       
-  margin: 0 10px;      
+  min-width: 270px; /* Set a fixed min-width */
+  width: 345px; /* Set a fixed max-width for consistent sizing */
+  /* height: 380px; */
   background: #fff;
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  justify-content: space-between;
+  /* Removed margin-left: -6px; */
+  scroll-snap-align: start; /* Each card is a snap point */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  padding: 10px;
 }
 
 /* Image wrapper so we can overlay heart */
@@ -127,8 +125,8 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  background: none;   /* ✅ no background */
-  border: none;       /* ✅ no border */
+  background: none; /* ✅ no background */
+  border: none; /* ✅ no border */
   cursor: pointer;
   padding: 0;
 }
@@ -145,15 +143,12 @@
   transition: color 0.12s ease;
 }
 
-
 /* card body */
 .cardBody {
   padding: 10px 12px 14px 12px;
   display: flex;
   flex-direction: column;
-  min-height: 170px;
-
-   flex: 1;
+  flex: 1; /* Allow card body to grow and fill space */
 }
 
 .productTitle {
@@ -165,6 +160,7 @@
   font-size: 0.85rem;
   color: #666;
   margin: 0 0 8px 0;
+  flex-grow: 1; /* Allow description to take available space */
 }
 
 /* rating and reviews */
@@ -173,8 +169,15 @@
   color: #f5a623;
   margin-bottom: 8px;
 }
-.stars { margin-right: 6px; color: #f5a623; }
-.reviews { color: #555; font-size: 0.86rem; margin-left: 6px; }
+.stars {
+  margin-right: 6px;
+  color: #f5a623;
+}
+.reviews {
+  color: #555;
+  font-size: 0.86rem;
+  margin-left: 6px;
+}
 
 /* Prices: show new price first, then crossed old price */
 .productPrices {
@@ -196,7 +199,7 @@
 
 /* actions at bottom */
 .cardActions {
-  margin-top: auto;
+  margin-top: auto; /* Push actions to the bottom */
   display: flex;
   align-items: center;
   gap: 8px;
@@ -229,106 +232,158 @@
 /* Responsive tweaks */
 @media (max-width: 1024px) {
   .productCard {
-     min-width: 220px; max-width: 240px;
-     }
-  .productImg { height: 140px; }
+    min-width: 250px;
+    max-width: 350px;
+    /* height: 370px; */
+  }
+  .productImg {
+    height: 150px;
+  }
+  .bigArrow.left {
+    left: -15px;
+  }
+  .bigArrow.right {
+    right: -15px;
+  }
 }
 
-
 @media (max-width: 768px) {
+  .container
+  {
+    margin-top: 20px;
+  }
   .slider {
-    padding: 8px 10px;
+    padding: 8px 0; /* No horizontal padding */
     gap: 20px;
   }
 
   .productCard {
-    flex: 0 0 calc(100% / 3 - 14px); /* ✅ 3 cards in one page */
-    max-width: calc(100% / 3 - 14px);
+    min-width: 280px; /* A bit wider for better visibility on smaller screens */
+    width: 30px;
+    /* height: 360px; */
+    flex: 0 0 50%;
   }
 
+  .productImg {
+    height: 140px;
+  }
+
+  .bigArrow {
+    width: 32px;
+    height: 32px;
+    /* left: -10px; */
+    /* right: -10px; */
+  }
+  .bigArrow.left {
+    left: -10px;
+  }
+  .bigArrow.right {
+    right:0;
+  }
+}
+
+@media (max-width: 425px) {
+  .productCard {
+    min-width: 90vw; /* Make card almost full width */
+    max-width: 90vw;
+    /* height: 350px; */
+  }
+  .productImg {
+    height: 130px;
+  }
+  .bigArrow {
+    width: 28px;
+    height: 28px;
+  }
+  .bigArrow.right {
+    right: -8px;
+  }
+  .bigArrow.left {
+    left: -8px;
+  }
+
+  .cardBody {
+    min-height: 140px;
+  }
+  .sliderHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .pageControls {
+    align-self: flex-end;
+  }
+}
+
+/* 📱 For max-width: 375px */
+@media (max-width: 375px) {
+  .productCard {
+    /* min-width: 95vw;  */
+    /* max-width: 90px; */
+    width: 100%;
+    /* height: 340px; */
+  }
+  .productImg {
+    height: 120px;
+  }
+
+  .bigArrow {
+    width: 26px;
+    height: 26px;
+  }
+  .bigArrow.right {
+    right: -7px;
+  }
+  .bigArrow.left {
+    left: -7px;
+  }
+
+  .cardBody {
+    min-height: 130px;
+  }
+  .sliderHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .pageControls {
+    align-self: flex-end;
+  }
+}
+
+/* 📱 For max-width: 325px */
+@media (max-width: 325px) {
+  .productCard {
+    /* min-width: 98vw;  */
+    /* max-width: 98vw; */
+    /* height: 330px; */
+    width: 100%;
+  }
   .productImg {
     height: 130px;
   }
 
   .bigArrow {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: white;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    border: none;
-    cursor: pointer;
-  }
-}
-
-@media (max-width: 425px) {
-  .productCard { min-width: 225px; max-width: 250px; }
-  .productImg { height: 110px; }
-  .bigArrow
-  {
-     width: 26px;
-    height: 26px;
-  }
-  .bigArrow.right { right: -7px; }
-.bigArrow svg { font-size: 15px }
-
-  .cardBody { min-height: 140px; }
-  .sliderHeader { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .pageControls { align-self: flex-end; }
-}
-
-/* 📱 For max-width: 375px */
-@media (max-width: 375px) {
-  .productCard { 
-    min-width: 200px; 
-    max-width: 220px; 
-  }
-  .productImg { height: 100px; }
-
-  .bigArrow {
     width: 24px;
     height: 24px;
-  }
-  .bigArrow.right { right: -6px; }
-  .bigArrow svg { font-size: 15px; }
-
-  .cardBody { min-height: 130px; }
-  .sliderHeader { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    gap: 6px; 
-  }
-  .pageControls { align-self: flex-end; }
-}
-
-/* 📱 For max-width: 325px */
-@media (max-width: 325px) {
-  .productCard { 
-    min-width: 180px; 
-    max-width: 200px; 
-  }
-  .productImg { height: 110px; }
-
-  .bigArrow {
-    width: 22px;
-    height: 22px;
     top: 35%;
   }
-  .bigArrow.right { right: -5px; }
-  .bigArrow svg { font-size: 15px; }
-
-  .cardBody { min-height: 120px; }
-  .sliderHeader { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    gap: 5px; 
+  .bigArrow.right {
+    right: -6px;
   }
-  .pageControls { align-self: flex-end; }
+  .bigArrow.left {
+    left: -6px;
+  }
+
+  .cardBody {
+    min-height: 120px;
+  }
+  .sliderHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .pageControls {
+    align-self: flex-end;
+  }
 }

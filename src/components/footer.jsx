@@ -47,8 +47,10 @@ export default function Footer() {
           <h3>Make Money with Us</h3>
           <ul>
             <li><Link to="/global-selling">Sixpine Global Selling</Link></li>
-            <li>Supply to Sixpine</li>
-            <li>Advertise Your Products</li>
+         
+            <li><Link to="/supply">Supply to Sixpine</Link></li>
+             <li><Link to="/advertise">Advertise Your Products</Link></li>
+
           </ul>
         </div>
 
@@ -76,9 +78,10 @@ export default function Footer() {
           <ul>
             
             <li><Link to="/your-account"> Your Account </Link></li>
-            <li>Recalls & Product Safety Alert</li>
-            <li>100% Purchase Protection</li>
-            <li>Download the Sixpine App 📱</li>
+            <li> <Link to ="/recalls_product">Recalls & Product Safety Alert </Link> </li>
+            <li> <Link to ="/purchaseProtection">100% Purchase Protection </Link></li>
+            <li> <Link to ="/your-app">Download the Sixpine App 📱</Link></li>
+          
             <li>Help</li>
           </ul>
         </div>

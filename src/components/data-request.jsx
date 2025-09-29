@@ -28,7 +28,7 @@ export default function DataRequest() {
   ];
 
   return (
-    <div className={styles.container}>
+    <div className={styles.Datacontainer}>
       <h2 className={styles.heading}>Request your data</h2>
       <p className={styles.subtext}>
         Please select the data that you want.

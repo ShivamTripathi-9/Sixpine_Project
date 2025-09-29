@@ -5,7 +5,7 @@ import NavigationDown from "../components/Navigationdown.jsx";
 
 
 import Footer from "../components/footer.jsx";
-import Career from "../components/career.jsx";
+import Advertise from "../components/Advertise.jsx";
 
 
 
@@ -16,7 +16,7 @@ const CareerPage: React.FC = () => {
       <Navbar />
       <Navigation />
       <NavigationDown />
-      <Career />
+      <Advertise />
       
 
   
