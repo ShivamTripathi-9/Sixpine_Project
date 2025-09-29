@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar.jsx";  
 import Navigation from "../components/Navigation.jsx";
+import NavigationDown from "../components/Navigationdown.jsx"; 
 import Footer from "../components/footer.jsx";
 import Advertising_Preferece from "../components/Advertising-prefereces/advertising_prefereces.jsx";
 
@@ -15,7 +16,7 @@ const CareerPage: React.FC = () => {
     <div>
       <Navbar />
       <Navigation />
-      {/* <Navigationdown /> */}
+      <NavigationDown />
 
       <Advertising_Preferece/>
       <ProductSider/>
