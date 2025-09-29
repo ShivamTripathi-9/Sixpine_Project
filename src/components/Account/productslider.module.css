@@ -281,7 +281,7 @@
   .productCard {
     min-width: 90vw; /* Make card almost full width */
     max-width: 90vw;
-    height: 350px;
+    /* height: 350px; */
   }
   .productImg {
     height: 130px;
@@ -316,7 +316,7 @@
     /* min-width: 95vw;  */
     /* max-width: 90px; */
     width: 100%;
-    height: 340px;
+    /* height: 340px; */
   }
   .productImg {
     height: 120px;
