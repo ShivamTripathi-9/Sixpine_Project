@@ -3,6 +3,7 @@
   padding: 20px;
   background: #fff;
   color: #222;
+  top: 20px;
 }
 
 /* Slider header: title (left) and page controls (right) */
@@ -247,6 +248,10 @@
 }
 
 @media (max-width: 768px) {
+  .container
+  {
+    margin-top: 20px;
+  }
   .slider {
     padding: 8px 0; /* No horizontal padding */
     gap: 20px;
