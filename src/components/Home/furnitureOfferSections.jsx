@@ -67,7 +67,7 @@ const FurnitureOfferSections = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.offercontainer}>
       {sections.map((section, index) => (
         <div key={section.id} className={styles.section}>
           {/* Header */}

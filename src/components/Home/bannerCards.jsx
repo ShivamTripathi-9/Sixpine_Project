@@ -7,18 +7,14 @@ const bannerCards = [
   {
     // title: "Bohemian",
     // text: "Explore Furniture Fused With Rich Textures & Bold Hues Where Wanderlust Meets Home",
-    img: "/images/Home/banner.png",
+    img: "/images/Home/bannerCards.webp",
   },
   {
     // title: "Amberville",
     // text: "Explore Handcrafted Pieces Inspired By Colonial Charm, Reimagined For Modern Living",
-    img: "/images/Home/banner.png",
+    img: "/images/Home/bannerCards.webp",
   },
-  {
-    // title: "Eclectic",
-    // text: "Discover unique pieces that blend diverse styles for a truly personalized space.",
-    img: "/images/Home/banner.png",
-  },
+  
 ];
 
 // Slider Product Data

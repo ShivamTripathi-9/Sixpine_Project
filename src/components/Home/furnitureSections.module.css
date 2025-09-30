@@ -1,8 +1,9 @@
 .furnitureContainer {
   width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
+  padding:0 20px;
   /* max-width: 1200px;  */
+
  
 }
 
@@ -18,7 +19,7 @@
 }
 
 .sectionHeader h2 {
-  font-size: 28px; /* Slightly larger for prominence */
+  font-size: 22px; /* Slightly larger for prominence */
   margin: 0;
   padding: 0 20px;
 }
@@ -26,7 +27,7 @@
 .sectionHeader p {
   font-size: 16px; /* Slightly larger */
   color: #555; /* Darker gray for better readability */
-  margin: 5px 0 0;
+  /* margin: 5px 0 0; */
   padding: 0 20px;
 }
 
@@ -37,12 +38,13 @@
   font-size: 15px; /* Slightly larger text */
   cursor: pointer;
   border-radius: 6px;
-  width: 120px;   /* Adjusted width */
-  height: 40px;   /* Adjusted height */
+  /* width: 100px;   
+  height: 30px;    */
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease; /* Smooth transition for all properties */
+  border: none;
 }
 
 .viewBtn:hover {
@@ -59,7 +61,7 @@
 }
 
 .navBtn {
-  /* background: #fff; */
+  background: #fff;
   /* border: 1px solid #ddd; */
   border-radius: 50%;
   font-size: 30px; /* Larger arrows */
@@ -70,10 +72,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px; /* More margin */
+  /* margin: 0 10px; */
   z-index: 2;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   transition: all 0.2s ease;
+  border: none;
 }
 
 .navBtn:hover {
@@ -86,8 +89,8 @@
 .productList {
   display: flex;
   gap: 16px; /* Increased gap between cards */
-  margin-top: 20px;
-  padding-bottom: 20px;
+  /* margin-top: 20px; */
+  /* padding-bottom: 20px; */
   flex: 1;
 }
 
@@ -118,16 +121,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start; /* Align items to start */
-  gap: 16px; /* Consistent gap with scroll mode */
+  /* gap: 16px; */
 }
 
 /* Card Design */
 .productCard {
-  width: 325px; /* Default width for cards */
+  width: 335px; /* Default width for cards */
   background: #fff;
   /* border: 1px solid #eee; */
-  border-radius: 12px; /* Slightly more rounded corners */
-  padding: 15px;
+  border-radius: 012px; /* Slightly more rounded corners */
+  padding: 10px;
   text-align: left;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* More prominent shadow */
   flex-shrink: 0;
@@ -307,8 +310,10 @@
     align-items: flex-start;
     margin-bottom: 15px;
   }
+
+
   .sectionHeader h2 {
-    font-size: 22px;
+    font-size: 16px;
     padding: 0 10px;
   }
   .sectionHeader p {
@@ -317,22 +322,26 @@
   }
   .viewBtn {
     width: 100px;
-    height: 36px;
+    /* height: 36px; */
     font-size: 14px;
-    margin: 10px 10px 0;
+    /* margin: 10px 10px 0; */
+    border: none;
   }
   .productWrapper {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+   
+    margin: 0;
   }
   .navBtn {
     width: 32px;
     height: 32px;
     font-size: 20px;
     margin: 0 2px;
+    border: none;
   }
   .productList {
     gap: 15px;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
   }
   .productCard {
     min-width: 85%; 

@@ -1,7 +1,9 @@
 .container {
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
+  padding: 0 20px;
   text-align: center;
+ 
+  
 }
 
 .title {
@@ -50,20 +52,21 @@
 /* Section 1 - Grid */
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
   gap: 20px;
-  /* background-color: #e65c00; */
-  margin: 20px;
+  padding: 10px;
+
+  justify-content: center; /* Cards ko center align karega */
 }
 
 .card {
-  /* border: 1px solid #b52121; */
-  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
   overflow: hidden;
-  background: #fff;
   transition: 0.3s;
   cursor: pointer;
-  border-radius: 10px;  
+  /* width: 200px;      */
+  background: #fff;  /* Visible background */
 }
 
 .card:hover {
@@ -72,10 +75,10 @@
 }
 
 .card img {
-  width: 100%;
-  max-width: 200px;
-  height: 140px;
-  object-fit: contain;
+  /* width: 100%; */
+  /* max-width: 200px; */
+  height: 160px;
+  object-fit: cover;
   
 }
 
@@ -87,7 +90,7 @@
 
 /* Section 2 - Slider */
 .sliderSection {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   text-align: left;
 }
 
@@ -107,7 +110,7 @@
 
 .subtitle {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1;
   color: #444;
 }
 
@@ -143,8 +146,9 @@
 
 .sliderCard p {
   font-size: 16px;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   font-weight: 600;
+  margin-bottom: 10px;
 }
 .navBtn {
   background: white;       /* solid black background */
@@ -160,6 +164,7 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  border: none;
 }
 /* .navBtn:hover {
   background: #e65c00;
@@ -191,7 +196,8 @@
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
   .card img {
-    height: 120px;
+    height: 150px;
+  
   }
   .sliderCard {
     min-width: 210px;
@@ -217,7 +223,7 @@
     max-width: 180px;
   }
   .sliderCard img {
-    height: 120px;
+    height: 150px;
   }
   .title {
     font-size: 22px;
@@ -231,6 +237,11 @@
   }
   .gridContainer {
    grid-template-columns: repeat(2, 1fr);
+  }
+   .card img {
+    height: 120px;
+    object-fit: contain;
+  
   }
   .sliderCard {
     min-width: 140px;
@@ -250,6 +261,10 @@
     min-width: 55px;
     font-size: 11px;
     padding: 5px 8px;
+  }
+
+  .gridContainer {
+   grid-template-columns: repeat(1, 1fr);
   }
    .sliderCard {
     min-width: 230px;

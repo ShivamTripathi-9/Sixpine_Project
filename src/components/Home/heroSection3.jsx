@@ -11,11 +11,12 @@ const HeroSection3 = () => {
     { name: "Floor Lamps", img: "/images/Home/FloorLamps.jpg" },
     { name: "Hanging Lights", img: "/images/Home/HangingLights.jpg" },
     { name: "Home Temple", img: "/images/Home/HomeTemple.webp" },
-    { name: "Serving Trays", img: "/images/Home/HomeTemple.webp" },
-    { name: "Wall Decor", img: "/images/Home/FloorLamps.jpg" },
-    { name: "Kitchen Racks", img: "/images/Home/FloorLamps.jpg" },
-    { name: "Chopping Board", img: "/images/Home/HomeTemple.webp" },
-    { name: "Artificial Plants", img: "/images/Home/FloorLamps.jpg" },
+    { name: "Serving Trays", img: "/images/Home/ServingTrays.jpg" },
+    { name: "Wall Decor", img: "/images/Home/Decor.jpg" },
+    { name: "Kitchen Racks", img: "/images/Home/Cookware.jpg" },
+    { name: "Chopping Board",img: "/images/Home/ServingTrays.jpg" },
+    { name: "Artificial Plants",img: "/images/Home/FloorLamps.jpg" },
+  
   ];
 
   const sliderCards = [
@@ -24,35 +25,35 @@ const HeroSection3 = () => {
       title: "TV UNIT",
       desc: "Built to Hold the Drama",
       price: "₹1,699",
-      img: "/images/Home/FloorLamps.jpg",
+      img: "/images/Home/sofa1.jpg",
     },
     {
       tag: "UPTO 50% OFF",
       title: "OFFICE CHAIR",
       desc: "Breathe Easy, Work Even Harder",
       price: "₹3,989",
-      img: "/images/Home/HomeTemple.webp",
+      img: "/images/Home/sofa4.jpg",
     },
     {
       tag: "UPTO 40% OFF",
       title: "HOME TEMPLE",
       desc: "Aesthetic, Not Just Auspicious",
       price: "₹3,000",
-      img: "/images/Home/FloorLamps.jpg",
+      img: "/images/Home/sofa2.jpg",
     },
     {
       tag: "UPTO 50% OFF",
       title: "OFFICE CHAIR",
       desc: "Breathe Easy, Work Even Harder",
       price: "₹3,989",
-      img: "/images/Home/HomeTemple.webp",
+      img: "/images/Home/sofa3.jpg", // Duplicated for slider effect
     },
     {
-      tag: "UPTO 50% OFF",
-      title: "OFFICE CHAIR",
-      desc: "Breathe Easy, Work Even Harder",
-      price: "₹3,989",
-      img: "/images/Home/FloorLamps.jpg",
+      tag: "UPTO 45% OFF",
+      title: "TV UNIT",
+      desc: "Built to Hold the Drama",
+      price: "₹1,699",
+      img: "/images/Home/sofa1.jpg", // Duplicated for slider effect
     },
   ];
 
@@ -78,12 +79,13 @@ const HeroSection3 = () => {
           <p>Explore timeless pieces for every nook and space</p>
           <span className={styles.offer}>UPTO 60% OFF</span>
 
-          <img
+          {/* This image and text are not in the provided image, commenting out for exact match */}
+          {/* <img
             src="/images/Home/FloorLamps.jpg"
             alt="decorative"
             className={styles.decorImage}
           />
-          <span className={styles.DecorativeName}>Light Show</span>
+          <span className={styles.DecorativeName}>Light Show</span> */}
         </div>
 
         <div className={styles.rightGrid}>

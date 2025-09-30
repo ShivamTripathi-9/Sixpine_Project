@@ -6,33 +6,36 @@
 }
 
 .heroContainer {
-  font-family: 'Arial', sans-serif;
-  padding: 20px 0;
-  min-height: 70vh;
-  /* Lower z-index so the Navbar dropdown can appear on top */
-  position: relative; /* Needs position for z-index to work */
-  z-index: 10; /* Lower than your dropdown's z-index (which is usually very high, e.g., 9999) */
+  font-family: "Arial", sans-serif;
+  padding: 0 15px;
+  min-height: 100%;
+  position: relative;
+  z-index: 10;
+  /* background-color: #FF6B35;  */
+  top: 20px;
 }
 
 .heroWrapper {
   margin: 0 auto;
-  padding: 0 10px;
 }
 
 .heroGrid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
-  height: 400px;
+  height: 325px;
+  /* background-color: #357ABD; */
 }
 
 /* Main Carousel Styles */
 .mainCarousel {
   position: relative;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
   overflow: hidden;
   display: flex;
   align-items: center;
+  transition: background-color 0.5s ease-in-out; /* Smooth background transition */
+  height: 100%;
 }
 
 .navArrow {
@@ -60,32 +63,37 @@
 }
 
 .navArrowLeft {
-  left: 5px;
+  /* left: 5px; */
 }
 
 .navArrowRight {
-  right: 5px;
+  right: 1px;
 }
 
 .slideContent {
   display: flex;
   width: 100%;
-  height: 100%;
-  padding: 40px;
+  padding: 0 40px;
+  /* For smooth content transition (optional, depends on desired effect) */
+  transition: opacity 0.5s ease-in-out;
+  /* background-color: #FF6B35; */
 }
 
 .slideText {
   flex: 1;
   color: white;
   z-index: 1;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .slideSubtitle {
   font-size: 18px;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
   font-weight: 300;
   opacity: 0.95;
-  margin: 0 0 10px 0;
 }
 
 .slideTitle {
@@ -93,7 +101,6 @@
   font-weight: 200;
   margin-bottom: 25px;
   line-height: 1.2;
-  margin: 0 0 25px 0;
   position: relative;
   display: inline-block;
 }
@@ -102,9 +109,9 @@
   content: "";
   display: block;
   width: 150px;
-  height: 3px;
-  background: #a19e9e;
-  margin-top: 10px;
+  height: 0.5px;
+  background: #fff;
+  /* margin-top: 10px; */
 }
 
 .priceSection {
@@ -115,7 +122,6 @@
   font-size: 16px;
   margin-bottom: 10px;
   opacity: 0.9;
-  margin: 0 0 10px 0;
 }
 
 .priceContainer {
@@ -125,13 +131,13 @@
 }
 
 .price {
-  font-size: 38px;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 500;
   line-height: 1;
 }
 
 .asterisk {
-  font-size: 40px;
+  font-size: 36px;
   opacity: 0.8;
 }
 
@@ -141,6 +147,7 @@
   color: white;
   padding: 5px 20px;
   font-size: 16px;
+  width: 70%;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -157,19 +164,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* Needed for absolute positioning of image if desired for transition */
 }
 
 .imagePlaceholder {
-  width: 500px;
-  height: 380px;
-  border-radius: 50px;
+  width: 100%; /* Take full width of its flex container */
+  max-width: 400px; /* Max width constraint */
+  height: 100%; /* Take full height of its flex container */
+  max-height: 320px;
+  border-radius: 50px; /* Consider if this needs to be a circle or rounded rect */
   overflow: hidden;
+  display: flex; /* For centering the image vertically if it's smaller */
+  align-items: center;
+  justify-content: center;
 }
 
 .productImg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
+  object-fit: contain; /* Or 'cover' */
+  display: block;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* For image transition */
 }
 
 .brandLogo {
@@ -213,17 +229,21 @@
 .rightPanels {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* Bedroom Panel */
 .bedroomPanel {
-  background-image: url("/images/bedroom-img.jpg");
-  border-radius: 15px;
-  padding: 20px;
+  background-image: url("/images/Home/bedroomPanel.webp");
+  background-size: cover; /* Use cover to ensure it fills the background */
+  background-position: center;
+  /* border-radius: 0 20px  20px 0; */
+  padding: 10px;
   position: relative;
   overflow: hidden;
-  background-size: contain;
+  flex: 1; /* Make it take available height */
+  display: flex; /* For aligning content */
+  align-items: flex-start;
 }
 
 .bedroomContent {
@@ -232,17 +252,19 @@
   height: 100%;
   align-items: flex-start;
   position: relative;
+  width: 100%;
 }
 
 .bedroomText {
   flex: 1;
   position: relative;
+  color: white; /* Ensure text is visible */
 }
 
 .specialDealBadge {
   position: absolute;
   left: -20px;
-  background: linear-gradient(45deg, #FF6B35, #FF8C42);
+  background: linear-gradient(45deg, #ff6b35, #ff8c42);
   color: white;
   padding: 8px 20px;
   border-radius: 0 20px 20px 0;
@@ -258,15 +280,13 @@
   opacity: 0.9;
   font-weight: bold;
   margin-top: 40px;
-  color: white;
 }
 
 .discountPrice {
-  font-size: 34px;
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 5px;
   line-height: 1;
-  color: white;
 }
 
 .instantDiscount {
@@ -274,7 +294,6 @@
   opacity: 0.85;
   margin-bottom: 20px;
   font-weight: 400;
-  color: white;
 }
 
 .bedroomBuyBtn {
@@ -282,8 +301,8 @@
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: white;
   padding: 8px 18px;
-  border-radius: 6px;
   font-size: 11px;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -297,19 +316,23 @@
 
 /* Mattress Panel */
 .mattressPanel {
-  background-image: url("/images/bedroom-img.jpg");
-  background-size: contain;
+  background-image: url("/images/Home/mattress.jpg");
+
+  background-size: cover;
   background-position: center;
-  border-radius: 15px;
-  padding: 20px;
+  /* border-radius: 0 20px  20px 0; */
+  padding: 10px;
   position: relative;
   overflow: hidden;
+  flex: 1; /* Make it take available height */
+  display: flex;
+  align-items: flex-start;
 }
 
 .shipsBadge {
   position: absolute;
   left: 0px;
-  background: linear-gradient(45deg, #4A90E2, #357ABD);
+  background: linear-gradient(45deg, #4a90e2, #357abd);
   color: white;
   padding: 8px 20px;
   border-radius: 0 20px 20px 0;
@@ -328,6 +351,8 @@
   height: 100%;
   align-items: flex-start;
   padding-top: 35px;
+  width: 100%;
+  color: #333;
 }
 
 .mattressText {
@@ -335,16 +360,16 @@
 }
 
 .mattressTitle {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
-  margin: 10px 0 0px 0;
+  margin: 8px 0 0px 0;
   letter-spacing: 1px;
 }
 
 .mattressSubtitle {
   font-size: 12px;
   opacity: 0.85;
-  margin: 0 0 18px 0;
+  margin: 0 0 10px 0;
   font-weight: 400;
 }
 
@@ -356,7 +381,7 @@
   font-size: 12px;
   opacity: 0.8;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   position: relative;
   font-weight: 600;
 }
@@ -398,7 +423,7 @@
 
 .supportBtn {
   border-radius: 12px 0 0 12px;
-  padding: 5px 10px;
+  padding: 5px 5px;
   color: white;
   text-align: center;
   cursor: pointer;
@@ -406,20 +431,20 @@
 }
 
 .supportBtn:hover {
-  transform: scale(1.05) translateY(.5px);
+  transform: scale(1.05) translateY(0.5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .phoneBtn {
-  background: linear-gradient(135deg, #FF6B35, #FF8C42);
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
 }
 
 .expertBtn {
-  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  background: linear-gradient(135deg, #4a90e2, #357abd);
 }
 
 .supportIcon {
-  margin-bottom: px;
+  /* margin-bottom: px; */
   display: flex;
   justify-content: center;
 }
@@ -434,70 +459,170 @@
   margin-bottom: 2px;
 }
 
+/* Banner Container */
+.bannerContainer {
+  /* margin-top: 50px; */
+  margin-bottom: 10px;
+}
+
+.bannerImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 /* -------------------- Responsive -------------------- */
 
-/* ✅ Laptop & Large Tablets (≤1024px) */
+/* Laptop & Large Tablets (≤1024px) */
 @media (max-width: 1024px) {
-  .heroGrid { grid-template-columns: 1.5fr 1fr; gap: 15px; }
-  .slideTitle { font-size: 42px; }
-  .productImage { padding-left: 10px; }
-  .imagePlaceholder { width: 100%; height: 70%; }
-}
-
-/* ✅ Tablets (≤768px) */
-@media (max-width: 768px) {
-  .heroGrid { grid-template-columns: 1fr; height: auto; gap: 15px; }
-  .slideContent { padding:30px 45px; flex-direction: row; text-align: left; }
-  .slideTitle { font-size: 34px; }
-  .price { font-size: 32px; }
-  .imagePlaceholder { width: 350px; height: 250px; margin: auto; }
-  .rightPanels { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-  .supportButtons { display: none; }
-}
-/* ✅ Mobiles (≤425px) */
-@media (max-width: 425px) {
+  .heroGrid {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 15px;
+  }
   .slideTitle {
-    font-size: 26px;
-    line-height: 1.2;
+    font-size: 42px;
   }
-  .slideSubtitle {
-    font-size: 14px;
-  }
-  .slideContent {
-    flex-direction: row;
-    text-align: left;
-  }
-  .slideText {
-    flex: none;
-  }
-  .price {
-    font-size: 24px;
-  }
-  .buyNowBtn {
-    font-size: 14px;
-    padding: 0px 14px;
-    margin-bottom: 10px;
+  .productImage {
+    padding-left: 10px;
   }
   .imagePlaceholder {
-    width: 180px;
-    height: 180px;
-  }
-  .rightPanels {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .discountPrice {
-    font-size: 24px;
-  }
-  .mattressTitle {
-    font-size: 18px;
-  }
-  .bedroomBuyBtn {
-    font-size: 10px;
-    padding: 6px 12px;
-  }
+    max-width: 100%;
+    max-height: 280px;
+  } /* Adjusted max-height */
 }
 
+/* Tablets (≤768px) */
+@media (max-width: 768px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 10px;
+
+  }
+  .slideContent {
+    padding: 15px 35px;
+    flex-direction: row;
+    text-align: start;
+  }
+
+  .slideText {
+    padding-right: 0;
+    margin-bottom: 20px;
+    align-items: self-start;
+  } /* Center text */
+  /* .slideTitle::after { margin: 10px auto; }  */
+  .slideTitle {
+    font-size: 34px;
+  }
+  .price {
+    font-size: 32px;
+  }
+  .imagePlaceholder {
+    width: 100%;
+    height: 250px;
+    max-width: 350px;
+    margin: auto;
+  } /* Adjusted image sizing */
+  .rightPanels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+}
+/* Mobiles (≤425px) */
+@media (max-width: 425px) {
+  .heroContainer {
+    padding: 0 10px;
+  }
+  .navArrow {
+    width: 20px;
+    height: 20px;
+    top: 47%;
+  }
+  .slideTitle::after {
+    display: none;
+  }
+
+  .slideContent {
+    display: flex;
+    flex-direction: row; /* Keep content in a row */
+    justify-content: space-between;
+    align-items: center;
+    text-align: start;
+    padding: 10px 15px;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    /* gap: 10px;  */
+    /* background-color: #FF6B35; */
+  }
+
+  .slideTitle {
+    font-size: 20px;
+    line-height: 1.2;
+    flex-shrink: 1; /* Allow title to shrink if needed */
+  }
+
+  .slideSubtitle {
+    font-size: 12px;
+    flex-shrink: 1;
+  }
+
+  .slideText {
+    margin-bottom: 0;
+    padding-right: 0;
+    flex-shrink: 1;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+  .asterisk {
+    font-size: 26px;
+    opacity: 0.8;
+  }
+
+  .buyNowBtn {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    flex-shrink: 0; /* Keep button readable */
+  }
+
+  .imagePlaceholder {
+    width: 100%; /* Adjust smaller width */
+    height: 100%; /* Adjust smaller height */
+    border-radius: 20px;
+    flex-shrink: 0; /* Prevent image from shrinking too much */
+  }
+
+  .rightPanels {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .discountPrice {
+    font-size: 20px;
+  }
+
+  .mattressTitle {
+    font-size: 16px;
+  }
+
+  .bedroomBuyBtn {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .brandLogo {
+    display: none;
+  }
+
+  .slideIndicators {
+    right: 10px;
+    bottom: 5px;
+  }
+}
 
 @media (max-width: 375px) {
   .slideTitle {
@@ -506,43 +631,27 @@
   .slideSubtitle {
     font-size: 12px;
   }
-  .slideContent {
-    flex-direction: row;
-    text-align: left;
-  }
-  .slideText {
-    flex: none;
-  }
   .price {
     font-size: 20px;
   }
   .buyNowBtn {
-    font-size: 14px;
-    padding: 0px 14px;
-    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 7px 12px;
   }
   .imagePlaceholder {
-    width: 150px;
-    height: 150px;
-    border-radius: 10%;
-  }
-  .rightPanels {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    height: 180px;
+    max-width: 200px;
   }
   .discountPrice {
-    font-size: 24px;
+    font-size: 22px;
   }
   .mattressTitle {
-    font-size: 18px;
+    font-size: 16px;
   }
-  .bedroomBuyBtn {
-    font-size: 10px;
-    padding: 6px 12px;
-  }
+  /* .supportButtons { display: none; } */
 }
 
-/* ✅ Extra Small Mobiles (≤325px) */
+/* Extra Small Mobiles (≤325px) */
 @media (max-width: 325px) {
   .slideTitle {
     font-size: 18px;
@@ -551,24 +660,49 @@
     font-size: 10px;
   }
   .price {
-    font-size: 28px;
+    font-size: 18px;
   }
   .buyNowBtn {
-    font-size: 12px;
+    font-size: 11px;
+    padding: 6px 10px;
   }
   .imagePlaceholder {
-    width: 110px;
-    height: 110px;
-    display: none;
+    height: 150px;
+    max-width: 180px;
   }
   .discountPrice {
     font-size: 20px;
   }
   .mattressTitle {
-    font-size: 16px;
+    font-size: 14px;
   }
   .bedroomBuyBtn {
     font-size: 9px;
     padding: 5px 10px;
+  }
+  .slideContent {
+    padding: 15px;
+  }
+}
+
+.bannerContainer {
+  margin-top: 50px;
+}
+
+.bannerImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Optional: Responsive height for smaller screens */
+@media (max-width: 768px) {
+  .bannerContainer {
+    margin-top: 8px; 
+    /* padding: 0 10px; */
+  }
+  .bannerImage {
+    height: auto;
   }
 }

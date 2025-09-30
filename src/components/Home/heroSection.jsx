@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './heroSection.module.css'; // Changed to module import
+import styles from './heroSection.module.css';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,7 +11,8 @@ const HeroSection = () => {
       subtitle: "Coffee Table",
       price: "₹ 2,499",
       buttonText: "BUY NOW",
-      backgroundColor: "#C4A484"
+      backgroundColor: "#C4A484",
+      imageSrc: "/images/hero.jpeg" // Added image source
     },
     {
       id: 2,
@@ -19,7 +20,8 @@ const HeroSection = () => {
       subtitle: "Sofa Collection",
       price: "₹ 15,999",
       buttonText: "BUY NOW",
-      backgroundColor: "#8B7355"
+      backgroundColor: "#8B7355",
+      imageSrc: "/images/Home/bedroomPanel.webp" // Example image source (add your own)
     },
     {
       id: 3,
@@ -27,7 +29,8 @@ const HeroSection = () => {
       subtitle: "Bedroom Sets",
       price: "₹ 25,999",
       buttonText: "BUY NOW",
-      backgroundColor: "#A68B5B"
+      backgroundColor: "#A68B5B",
+      imageSrc: "/images/Home/bedroomPanel.webp" // Example image source (add your own)
     }
   ];
 
@@ -86,9 +89,10 @@ const HeroSection = () => {
               {/* Product Image */}
               <div className={styles.productImage}>
                 <div className={styles.imagePlaceholder}>
+                  {/* Dynamic image source */}
                   <img
-                    src="/images/hero.jpeg"
-                    alt="Coffee Table with woman reading"
+                    src={slides[currentSlide].imageSrc}
+                    alt={slides[currentSlide].subtitle}
                     className={styles.productImg}
                   />
                 </div>
@@ -183,7 +187,19 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* banner up */}
+      <div className={styles.bannerContainer}>
+        <img
+          src="https://ii1.pepperfry.com/assets/a08eed1c-bbbd-4e8b-b381-07df5fbfe959.jpg"
+          alt="Sixpine Banner"
+          className={styles.bannerImage}
+        />
+      </div>
+
     </div>
+
+
   );
 };
 
