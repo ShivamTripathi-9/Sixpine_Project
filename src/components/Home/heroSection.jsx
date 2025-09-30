@@ -12,7 +12,7 @@ const HeroSection = () => {
       price: "₹ 2,499",
       buttonText: "BUY NOW",
       backgroundColor: "#C4A484",
-      imageSrc: "/images/hero.jpeg" // Added image source
+      imageSrc: "/images/Home/studytable.jpg"  // Added image source
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const HeroSection = () => {
       price: "₹ 15,999",
       buttonText: "BUY NOW",
       backgroundColor: "#8B7355",
-      imageSrc: "/images/Home/bedroomPanel.webp" // Example image source (add your own)
+      imageSrc: "/images/Home/furnishing.jpg" // Example image source (add your own)
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const HeroSection = () => {
       price: "₹ 25,999",
       buttonText: "BUY NOW",
       backgroundColor: "#A68B5B",
-      imageSrc: "/images/Home/bedroomPanel.webp" // Example image source (add your own)
+      imageSrc: "/images/Home/livingroom.jpg" // Example image source (add your own)
     }
   ];
 

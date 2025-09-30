@@ -12,6 +12,9 @@ import FurnitureSections from "../components/Home/furnitureSections.jsx";
 import FurnitureOfferSection from "../components/Home/furnitureOfferSections.jsx";
 import HomepageText from "../components/Home/HomepageText.jsx";
 
+import FeatureCard from "../components/Home/FeatureCard.jsx";
+
+
 
 const Homepage: React.FC = () => {
   return (
@@ -20,13 +23,12 @@ const Homepage: React.FC = () => {
       <Navigation />
       <NavigationDown />
       <HeroSection />
-
       <HeroSection2 />
       <HeroSection3 />
       <FurnitureCategories />
       <FurnitureSections />
       <FurnitureOfferSection />
-     
+     <FeatureCard/>
       <BannerCards />
       <HomepageText/>
   
