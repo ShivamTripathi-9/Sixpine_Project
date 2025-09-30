@@ -26,6 +26,7 @@ const Homepage: React.FC = () => {
       <FurnitureCategories />
       <FurnitureSections />
       <FurnitureOfferSection />
+     
       <BannerCards />
       <HomepageText/>
   

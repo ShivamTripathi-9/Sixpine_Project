@@ -1,0 +1,198 @@
+/* Features Section */
+.featuresContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.icon {
+  font-size: 28px;
+  color: #ff7f50;
+}
+
+.count {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.description {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Call To Action Section */
+.callToActionContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+}
+
+/* Timer */
+.timerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ff7f50;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  min-width: 140px;
+}
+
+.timerLabel {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.timerValues {
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.separator {
+  margin: 0 2px;
+}
+
+.timerUnits {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.endsIn {
+  font-size: 11px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+/* Offer Box */
+.offerBox {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ff7f50;
+  border-radius: 5px;
+  padding: 15px 20px;
+  flex-grow: 1;
+  max-width: 350px;
+}
+
+.offerIcon {
+  font-size: 28px;
+  margin-right: 12px;
+  color: #ff7f50;
+}
+
+.offerContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.offerText {
+  font-size: 13px;
+  color: #666;
+}
+
+.discount {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff7f50;
+}
+
+/* Info Boxes */
+.infoBoxes {
+  display: flex;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  max-width: 450px;
+  flex: 1;
+}
+
+.infoBoxItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px;
+  flex: 1;
+  border-right: 1px solid #eee;
+}
+
+.infoBoxItem:last-child {
+  border-right: none;
+}
+
+.infoIcon {
+  font-size: 20px;
+  color: #ff7f50;
+  margin-bottom: 4px;
+}
+
+.infoText {
+  font-size: 12px;
+  text-align: center;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .callToActionContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .offerBox {
+    max-width: 100%;
+    justify-content: center;
+  }
+  .infoBoxes {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .featuresContainer {
+    flex-direction: column;
+  }
+  .featureItem {
+    justify-content: center;
+  }
+  .infoBoxes {
+    flex-direction: column;
+  }
+  .infoBoxItem {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+  }
+  .infoBoxItem:last-child {
+    border-bottom: none;
+  }
+}
