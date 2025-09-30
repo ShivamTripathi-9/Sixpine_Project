@@ -10,6 +10,7 @@ import BannerCards from "../components/Home/bannerCards.jsx";
 import FurnitureCategories from "../components/Home/furnitureCategories.jsx";
 import FurnitureSections from "../components/Home/furnitureSections.jsx";
 import FurnitureOfferSection from "../components/Home/furnitureOfferSections.jsx";
+import HomepageText from "../components/Home/HomepageText.jsx";
 
 
 const Homepage: React.FC = () => {
@@ -24,9 +25,8 @@ const Homepage: React.FC = () => {
       {/* <FurnitureCategories /> */}
       {/* <FurnitureSections /> */}
       {/* <FurnitureOfferSection /> */}
-
-
       {/* <BannerCards /> */}
+      <HomepageText/>
   
       <Footer />
 
