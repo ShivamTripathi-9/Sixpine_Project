@@ -16,17 +16,17 @@ const Homepage: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <Navigation />
-      <NavigationDown />
-      <HeroSection />
-      <HeroSection2 />
-      <HeroSection3 />
-      <FurnitureCategories />
-      <FurnitureSections />
-      <FurnitureOfferSection />
+      {/* <Navigation /> */}
+      {/* <NavigationDown /> */}
+      {/* <HeroSection /> */}
+      {/* <HeroSection2 /> */}
+      {/* <HeroSection3 /> */}
+      {/* <FurnitureCategories /> */}
+      {/* <FurnitureSections /> */}
+      {/* <FurnitureOfferSection /> */}
 
 
-      <BannerCards />
+      {/* <BannerCards /> */}
   
       <Footer />
 

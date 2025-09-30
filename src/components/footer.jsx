@@ -20,8 +20,13 @@ export default function Footer() {
           <h3>Quick Links</h3>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li>Shop</li>
-            <li>Deals</li>
+              <li>About Us</li>
+                <li>Offers & Discounts</li>
+          
+            <li>Blog / Furniture Guides</li>
+              <li>Contact Us</li>
+      
+          
           </ul>
         </div>
 
@@ -55,11 +60,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3>Policies</h3>
+          <h3>Customer Support</h3>
           <ul>
+            <li>FAQs</li>
+            <li>Order Tracking</li>
+            <li>Warranty Policy</li>
+            <li>Payment Options</li>
             <li>Privacy Policy</li>
-            <li>Terms of Use</li>
-            <li>Disclaimer</li>
+            <li>Terms & Conditions</li>
           </ul>
         </div>
 
