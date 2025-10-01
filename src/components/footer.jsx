@@ -63,7 +63,7 @@ export default function Footer() {
           <h3>Customer Support</h3>
           <ul>
             <li>FAQs</li>
-            <li>Order Tracking</li>
+            <li><Link to="/products-details">Products Details</Link></li>
             <li>Warranty Policy</li>
             <li>Payment Options</li>
             <li>Privacy Policy</li>

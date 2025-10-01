@@ -1,12 +1,12 @@
 .container {
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  padding: 20px;
+  padding: 0 20px;
   background: #fff;
   color: #222;
 }
 
 .sliderSection {
-  margin-bottom: 28px;
+  margin-bottom: 10px;
 }
 
 .sliderHeader {
