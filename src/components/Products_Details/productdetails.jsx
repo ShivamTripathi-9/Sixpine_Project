@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react"; // Added useRef here
 import styles from "./productdetails.module.css";
 import {
   FaStar,
@@ -14,13 +14,64 @@ const ProductDetails = () => {
 
 
 const images = [
-    "https://content.jdmagicbox.com/quickquotes/images_main/knitted-cotton-girls-shirt-802431157-luablfp4.jpg?impolicy=queryparam&im=Resize=(360,360),aspect=fit",
+   "https://ii1.pepperfry.com/media/catalog/product/m/d/494x544/mdf---sheesham-wood-pooja-mandir-in-copper-by-d-dass-mdf---sheesham-wood-pooja-mandir-in-copper-by-d-1up9tw.jpg",
     "https://ochaka.vercel.app/images/products/fashion/product-1.jpg",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmxEvubyreV01Px8O2aLAvKF5TiFsX9Te1dhAKPAelRlrdtboqZkK-MBwRYeYRTOljMvQ&usqp=CAU",
     "https://www.worldwin.in/upload/product/472794.jpeg",
   ];
 
+
+  
+
+
   const [mainImage, setMainImage] = useState(images[0]);
+
+
+// refs for lens zoom
+  const imgRef = useRef(null);
+  const lensRef = useRef(null);
+  const resultRef = useRef(null);
+
+  const zoom = 4; // zoom factor
+  const lensSize = 75;
+  
+
+  const handleMouseMove = (e) => {
+    const img = imgRef.current;
+    const lens = lensRef.current;
+    const result = resultRef.current;
+
+    const rect = img.getBoundingClientRect();
+    let x = e.clientX - rect.left - lens.offsetWidth / 2;
+    let y = e.clientY - rect.top - lens.offsetHeight / 2;
+
+      // clamp lens inside image
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
+    if (x > rect.width - lens.offsetWidth) x = rect.width - lens.offsetWidth;
+    if (y > rect.height - lens.offsetHeight) y = rect.height - lens.offsetHeight;
+
+    // move lens
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+
+    // zoomed background
+    result.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
+    result.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+  };
+
+const handleMouseEnter = () => {
+    lensRef.current.style.display = "block";
+    resultRef.current.style.display = "block";
+    resultRef.current.style.backgroundImage = `url(${mainImage})`;
+  };
+
+  const handleMouseLeave = () => {
+    lensRef.current.style.display = "none";
+    resultRef.current.style.display = "none";
+  };
+
+
 
 
   // State for options
@@ -81,12 +132,27 @@ const images = [
       </div>
 
       <div className={styles.mainLayout}>
-       
+       {/* Image + Zoom Section */}
          <div className={styles.imageSection}>
-    
-      <div className={styles.imageWrapper}>
-        <img src={mainImage} alt="Product" className={styles.mainImage} />
-      </div>
+       <div
+            className={styles.imageWrapper}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+           <img
+              ref={imgRef}
+              src={mainImage}
+              alt="Product"
+              className={styles.mainImage}
+            /> 
+            <div
+              ref={lensRef}
+              className={styles.lens}
+              style={{ width: lensSize, height: lensSize }}
+            ></div>
+          </div>
+         
 
       {/* Thumbnails */}
       <div className={styles.thumbnails}>
@@ -106,6 +172,9 @@ const images = [
 
         {/* PART 2 - MIDDLE DETAILS */}
         <div className={styles.details}>
+
+ <div ref={resultRef} className={styles.zoomResult}></div>
+
           <h2 className={styles.title}>PRODUCT TITLE GOES HERE</h2>
           <p className={styles.brand}>Brand: Staples</p>
 
