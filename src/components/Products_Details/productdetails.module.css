@@ -872,7 +872,7 @@ sidebar {
   }
 
   .zoomResult{
-    display: none;
+    display: none !important;
   }
 
   .thumbnails
@@ -934,6 +934,10 @@ sidebar {
   .imageWrapper {
     grid-column: 1;
     order: 1;   /* सबसे पहले */
+  }
+
+  .zoomResult{
+    display: none !important;
   }
 
   .details {

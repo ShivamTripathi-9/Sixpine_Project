@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3>Make Money with Us</h3>
+          <h3>Make Money with</h3>
           <ul>
             <li><Link to="/global-selling">Sixpine Global Selling</Link></li>
          

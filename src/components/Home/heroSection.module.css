@@ -410,9 +410,10 @@
 }
 
 /* Customer Support Buttons */
+
 .supportButtons {
   position: fixed;
-  right: 10px;
+  right:0;
   top: 50%;
   transform: translateY(-50%);
   display: flex;

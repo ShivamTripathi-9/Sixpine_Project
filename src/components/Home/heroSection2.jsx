@@ -11,7 +11,7 @@ const HomePage = () => {
         <div className={styles.grid}> {/* Use styles.grid */}
           <div className={styles.item}> {/* Use styles.item */}
             <img src="/images/Home/sofa1.jpg" alt="Sofa" />
-            <p>Sixpine Premium Velv...</p>
+            <p>Sixpine Premium </p>
           </div>
           <div className={styles.item}>
             <img src="/images/Home/sofa2.jpg" alt="Sofa" />
@@ -30,7 +30,7 @@ const HomePage = () => {
       </div>
 
       {/* Section 2 */}
-      <div className={styles.card}>
+      <div className={`${styles.card} ${styles.special}`}>
         <h3>New home arrivals under $50</h3>
         <div className={styles.grid}>
           <div className={styles.item}>
@@ -78,7 +78,7 @@ const HomePage = () => {
       </div>
 
       {/* Section 4 */}
-      <div className={styles.card}>
+    <div className={`${styles.card} ${styles.special}`}>
         <h3>More items to consider</h3>
         <div className={styles.grid}>
           <div className={styles.item}>

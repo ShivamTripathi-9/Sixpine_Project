@@ -8,8 +8,11 @@
   margin: auto;
 }
 
+.special {
+  background-color: lightblue;
+}
 .card {
-  background: #fff;
+  background-color: #fff;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -50,9 +53,12 @@
 .grid img {
   width: 100%;
   height: 150px; /* fixed height */
-  object-fit: contain; /* contain the image within the element's box while maintaining aspect ratio */
+  /* object-fit: contain;  */
   border-radius: 4px;
   border: 1px solid #fafafa;
+  object-fit: cover;
+   cursor: pointer; 
+  transition: transform 0.2s ease-in-out; 
 }
 
 .item p {

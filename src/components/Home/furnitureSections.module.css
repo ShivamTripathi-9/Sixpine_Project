@@ -61,11 +61,11 @@
 }
 
 .navBtn {
-  background: #fff;
+  background-color: #fff;
   /* border: 1px solid #ddd; */
   border-radius: 50%;
   font-size: 30px; /* Larger arrows */
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
   width: 35px; /* Larger buttons */
   height: 35px; /* Larger buttons */

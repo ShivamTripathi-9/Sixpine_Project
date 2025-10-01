@@ -9,7 +9,7 @@
 /* ---------- TOP SECTION ---------- */
 .topSection {
   background: #fff4f3; 
-  /* padding: 22px; */
+  padding: 22px;
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 15px;
@@ -71,6 +71,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   align-content: start;
+  /* padding:10px; */
 }
 .productCard {
   background-color: #fff; /* White background for product cards */
@@ -83,6 +84,7 @@
   padding-bottom: 10px; 
   cursor: pointer; 
   transition: transform 0.2s ease-in-out; 
+
 }
 .productCard:hover {
   transform: translateY(-5px);
@@ -156,10 +158,10 @@
 }
 .cardContent h3 {
   margin: 0; /* Removed bottom margin */
-  font-size: 20px; /* Increased font size */
+  font-size: 18px; /* Increased font size */
   color: #222;
   line-height: 1.2;
-  margin-top: 20px;
+  margin-top: 30px !important;
 }
 .desc {
   margin: 0;

@@ -91,7 +91,7 @@
 /* Product Cards */
 .craftedProductCard {
   min-width: 260px; /* Kept for larger screens, but will be overridden */
-  width: 335px; /* Kept for larger screens, but will be overridden */
+  width: 290px; /* Kept for larger screens, but will be overridden */
   background: #fff;
   /* border: 1px solid #eee; */
   border-radius: 8px;
