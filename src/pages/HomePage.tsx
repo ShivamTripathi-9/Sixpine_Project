@@ -14,7 +14,7 @@ import HomepageText from "../components/Home/HomepageText.jsx";
 
 import FeatureCard from "../components/Home/FeatureCard.jsx";
 
-
+import "./Homepage.css";
 
 const Homepage: React.FC = () => {
   return (
@@ -22,15 +22,19 @@ const Homepage: React.FC = () => {
       <Navbar />
       <Navigation />
       <NavigationDown />
-      <HeroSection />
-      <HeroSection2 />
-      <HeroSection3 />
-      <FurnitureCategories />
-      <FurnitureSections />
-      <FurnitureOfferSection />
-     <FeatureCard/>
-      <BannerCards />
-      <HomepageText/>
+
+     {/* Container wrap */}
+      <div className="homepage-container">
+        <HeroSection />
+        <HeroSection2 />
+        <HeroSection3 />
+        <FurnitureCategories />
+        <FurnitureSections />
+        <FurnitureOfferSection />
+        <FeatureCard />
+        <BannerCards />
+        <HomepageText />
+      </div>
   
       <Footer />
 
