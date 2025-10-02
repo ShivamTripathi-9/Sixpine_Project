@@ -70,6 +70,11 @@ const FurnitureOfferSections = () => {
     <div className={styles.offercontainer}>
       {sections.map((section, index) => (
         <div key={section.id} className={styles.section}>
+
+
+
+          <div className={styles.sectionBox}>
+            
           {/* Header */}
           <div className={styles.sectionHeader}>
             <h2>{section.title}</h2>
@@ -106,7 +111,14 @@ const FurnitureOfferSections = () => {
               ❯
             </button>
           </div>
+
+
+
+          </div>   {/* End of sectionBox  */}
         </div>
+
+
+
       ))}
     </div>
   );

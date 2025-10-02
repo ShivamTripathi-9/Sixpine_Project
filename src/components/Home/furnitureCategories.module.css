@@ -9,7 +9,7 @@
 .title {
   font-size: 28px;
   font-weight: 600;
-  margin:  20px;
+  margin: 10px 20px;
   
 }
 
@@ -26,7 +26,7 @@
 .subtitle
 {
   padding: 0 20px ;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .filterButtons button {
@@ -92,7 +92,24 @@
 .sliderSection {
   /* margin-top: 40px; */
   text-align: left;
+  /* background-color: #c90e0e; */
+  margin: 0 10px;
 }
+
+
+.title2 {
+  font-size: 24px;
+  font-weight: 600;
+  /* margin: 10px 20px; */
+  margin-bottom: 1px;
+}
+
+.subtitle2
+{
+  /* padding: 0 20px ; */
+  margin-bottom: 5px;
+}
+
 
 .sliderWrapper {
   display: flex;
@@ -106,11 +123,13 @@
   display: flex;
   gap: 20px;
   overflow: hidden;
+  /* background-color: #444; */
+  /* padding: 0 10px; */
 }
 
 .subtitle {
   font-size: 16px;
-  line-height: 1;
+  line-height: 1.5;
   color: #444;
 }
 
@@ -150,25 +169,42 @@
   font-weight: 600;
   margin-bottom: 10px;
 }
+.sliderWrapper {
+  position: relative; /* Needed for absolute positioning of buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+
 .navBtn {
-  background: white;       /* solid black background */
-  border: none;            /* remove border */
-  color: black;            /* arrow icon color */
-  font-size: 28px;         /* arrow size */
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;      /* round shape */
+  position: absolute; /* Place over slider */
+  top: 50%;           /* Vertically center */
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7); 
+  border: none;
+  color: black;
+  font-size: 28px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
-  display: flex;           /* center arrow */
+  display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  border: none;
+  z-index: 10;        /* Make sure above images */
 }
-/* .navBtn:hover {
-  background: #e65c00;
-} */
+
+.navBtn.left {
+  left: 0;  /* Adjust distance from left edge */
+}
+
+.navBtn.right {
+  right: 0; /* Adjust distance from right edge */
+}
+
 .navBtn:disabled {
   opacity: 0.4;
   cursor: not-allowed;

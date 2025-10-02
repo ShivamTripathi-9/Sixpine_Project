@@ -86,8 +86,8 @@ export default function FurnitureCategories() {
 
       {/* Section 2 - Slider */}
       <div className={styles.sliderSection}>
-        <h2 className={styles.title}>India's Finest Online Furniture Brand</h2>
-         <p className={styles.subtitle}>
+        <h2 className={styles.title2}>India's Finest Online Furniture Brand</h2>
+         <p className={styles.subtitle2}>
         {showMore ? fullText : shortText}{" "}
         <span
           className={styles.moreLink}

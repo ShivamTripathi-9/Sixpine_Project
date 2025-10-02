@@ -2,20 +2,69 @@
   width: 100%;
   padding: 0 20px;
   font-family: Arial, sans-serif;
+ 
 
 }
+
+
 
 /* Section */
 .section {
   margin-bottom: 10px;
+  padding: 10px; 
 }
+
+
+.sectionBox {
+  padding: 0 10px;
+  /* border-radius: 10px; */
+}
+
+
+/* Section Background Colors */
+
+.offercontainer .section:nth-child(1) {
+  background-color: #f0f0f0; 
+}
+
+.section:nth-child(1) .sectionBox {
+  background-color: white; 
+  padding: 10px 0;
+}
+
+.offercontainer .section:nth-child(2) {
+  background-color: #f0f0f0; 
+}
+.section:nth-child(2) .sectionBox {
+  background-color: white; 
+  padding: 10px 0;
+}
+
+
+.offercontainer .section:nth-child(3) {
+  background-color: white; 
+  /* border: 1px solid #ddd; */
+  border: 1px solid #ddd;
+}
+
+.section:nth-child(3) .sectionBox {
+  background-color: white; 
+  padding: 10px 0;
+  
+}
+
+
+
+
+
 
 .sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px 10px 5px;
+  /* padding: 0 5px 10px 5px; */
   padding:  0 20px;
+  
 }
 
 .sectionHeader h2 {
@@ -71,11 +120,11 @@
 /* Card */
 .card {
   flex: 0 0 auto;
-  width: 220px;
+  width: 230px;
   height: 200px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   overflow: hidden;
-  background: #fff;
+  /* background: #fff; */
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -91,6 +140,8 @@
 }
 
 /* Navigation Buttons */
+
+
 .navBtn {
   position: absolute;
   top: 50%;
@@ -114,11 +165,11 @@
 }
 
 .leftBtn {
-  left: -15px;
+  left: 0;
 }
 
 .rightBtn {
-  right: -15px;
+  right: 0;
 }
 /* ---------------- RESPONSIVE BREAKPOINTS ---------------- */
 
@@ -133,7 +184,7 @@
 /* Tablets landscape */
 @media (max-width: 1024px) {
   .card {
-   width: 225px;
+   width: 220px;
     height: 180px;
   }
 }
@@ -141,7 +192,7 @@
 /* Tablets portrait */
 @media (max-width: 768px) {
   .card {
-    width: 220px;
+    width: 215px;
     height: 150px;
   }
   .sectionHeader h2 {
@@ -155,7 +206,7 @@
 /* Mobile large */
 @media (max-width: 425px) {
   .card {
-    width: 170px;
+    width: 160px;
     height: 150px;
     
 
@@ -169,7 +220,7 @@
 /* Mobile medium */
 @media (max-width: 375px) {
  .card {
-    width: 140px;
+    width: 150px;
     height: 120px;
     
 

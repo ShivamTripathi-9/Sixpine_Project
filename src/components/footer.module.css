@@ -29,6 +29,8 @@
   gap: 20px;
   padding: 30px 32px;
   border-bottom: 1px solid #4b5563;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
 .footerLinks h3 {

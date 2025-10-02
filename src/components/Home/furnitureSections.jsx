@@ -190,7 +190,7 @@ const renderStars = (rating) => {
   return stars;
 };
 
-const Section = ({ title, subtitle, products }) => {
+const Section = ({ title, subtitle, products, extraClass }) => {
   const [viewAll, setViewAll] = useState(false);
   const listRef = useRef(null);
 
@@ -220,7 +220,7 @@ const Section = ({ title, subtitle, products }) => {
   };
 
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${extraClass || ""}`}>
       <div className={styles.sectionHeader}>
         <div>
           <h2>{title}</h2>
@@ -230,7 +230,7 @@ const Section = ({ title, subtitle, products }) => {
           className={styles.viewBtn}
           onClick={() => setViewAll(!viewAll)}
         >
-          {viewAll ? "Show Less" : "View All →"}
+          {viewAll ? "Show Less" : "View All  "}
         </button>
       </div>
 
@@ -283,6 +283,7 @@ const FurnitureSections = () => {
         title="Discover what’s new"
         subtitle="Designed to refresh your everyday life"
         products={data.discover}
+        extraClass={styles.discoverSection}
       />
       <Section
         title="Top-Rated by Indian Homes"
