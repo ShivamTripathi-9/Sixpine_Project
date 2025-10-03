@@ -105,6 +105,7 @@
   transform: translate(-50%, -50%); /* Center horizontally & vertically */
   border-radius: 8px; /* optional */
    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+   max-width: 1320px;
 }
 
 .imageModal {
@@ -544,10 +545,10 @@
 }
 
 .detailCard strong {
-  font-weight: normal;  /* same font-weight as normal text */
-  color: inherit;       /* same color as parent */
-  display: inline;      /* ek hi line me dikhe */
-  margin: 0;            /* extra margin remove */
+  font-weight: normal;  
+  color: inherit;      
+  display: inline;      
+  margin: 0;          
 }
 
 /* Hover effect */

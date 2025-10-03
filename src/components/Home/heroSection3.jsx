@@ -75,18 +75,22 @@ const HeroSection3 = () => {
     <section className={styles.hero3Container}>
       <div className={styles.topSection}>
         <div className={styles.leftText}>
-          <h2>Beautify Every Corner with Elegance</h2>
-          <p>Explore timeless pieces for every nook and space</p>
-          <span className={styles.offer}>UPTO 60% OFF</span>
+  <div className={styles.leftTextContent}>
+    <h2>Beautify Every Corner with Elegance</h2>
+    <p>Explore timeless pieces for every nook and space</p>
+    <span className={styles.offer}>UPTO 60% OFF</span>
+  </div>
 
-          {/* This image and text are not in the provided image, commenting out for exact match */}
-          {/* <img
-            src="/images/Home/FloorLamps.jpg"
-            alt="decorative"
-            className={styles.decorImage}
-          />
-          <span className={styles.DecorativeName}>Light Show</span> */}
-        </div>
+  <div className={styles.leftProductCard}>
+    <img
+      src="/images/Home/FloorLamps.jpg"
+      alt="Light Show"
+      className={styles.leftProductImg}
+    />
+    <div className={styles.leftProductName}>Light Show</div>
+  </div>
+</div>
+
 
         <div className={styles.rightGrid}>
           {topCards.map((card, i) => (

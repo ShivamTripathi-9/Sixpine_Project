@@ -315,15 +315,15 @@
     }
     .featuresBar {
       display: flex;
-      flex-wrap: wrap;          /* allow wrapping */
-      flex-direction: row;      /* ✅ row layout */
+      flex-wrap: wrap;          
+      flex-direction: row;     
       justify-content: space-between;
       gap: 8px;
       padding: 8px;
     }
 
     .featureItem {
-      flex: 0 0 calc(50% - 8px); /* ✅ 2 per row */
+      flex: 0 0 calc(50% - 8px); 
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -407,8 +407,8 @@
     }
 
     .badgeItem {
-      flex: 0 0 calc(50% - 10px); /* दो item per row */
-      border-right: none;         /* divider हटाओ */
+      flex: 0 0 calc(50% - 10px); 
+      border-right: none;         
       justify-content: flex-start;
     }
 
@@ -456,8 +456,8 @@
   }
 /* Timer Box Compact Styling */
 .timerBox {
-  font-size: 12px;       /* overall compact */
-  /* padding: 6px;          कम padding */
+  font-size: 12px;      
+ 
   border-radius: 6px;
 }
 
@@ -476,7 +476,7 @@
   align-items: center;
   font-size: 12px;
   font-weight: 600;
-  gap: 7px;              /* कम gap */
+  gap: 7px;              
   margin-bottom: 2px;
   color: #d60f0f;
 }
@@ -489,8 +489,8 @@
 /* Timer labels */
 .timerLabels {
   display: flex;
-  justify-content: space-between; /* बराबर spacing */
-  width: 40%;                     /* छोटे devices पर थोड़ा छोटा */
+  justify-content: space-between; 
+  width: 40%;                     
   font-size: 8px;
   /* margin-top: 4px; */
   gap: 7px;
