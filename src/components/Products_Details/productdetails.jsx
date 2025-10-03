@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"; // Added useRef here
+import React, { useState } from "react";
 import styles from "./productdetails.module.css";
 import {
   FaStar,
@@ -7,72 +7,34 @@ import {
   FaTrash,
   FaCheckCircle,
 } from "react-icons/fa";
-import { AiOutlineInfoCircle } from "react-icons/ai"; // info icon
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { BsTagFill } from "react-icons/bs";
 
 const ProductDetails = () => {
-
-
-const images = [
-   "https://ii1.pepperfry.com/media/catalog/product/m/d/494x544/mdf---sheesham-wood-pooja-mandir-in-copper-by-d-dass-mdf---sheesham-wood-pooja-mandir-in-copper-by-d-1up9tw.jpg",
+  const images = [
+    "https://ii1.pepperfry.com/media/catalog/product/m/d/494x544/mdf---sheesham-wood-pooja-mandir-in-copper-by-d-dass-mdf---sheesham-wood-pooja-mandir-in-copper-by-d-1up9tw.jpg",
     "https://ochaka.vercel.app/images/products/fashion/product-1.jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmxEvubyreV01Px8O2aLAvKF5TiFsX9Te1dhAKPAelRlrdtboqZkK-MBwRYeYRTOljMvQ&usqp=CAU",
     "https://www.worldwin.in/upload/product/472794.jpeg",
+    "https://ii1.pepperfry.com/media/catalog/product/m/d/494x544/mdf---sheesham-wood-pooja-mandir-in-copper-by-d-dass-mdf---sheesham-wood-pooja-mandir-in-copper-by-d-1up9tw.jpg",
   ];
 
-
-  
-
-
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [mainImage, setMainImage] = useState(images[0]);
 
-
-// refs for lens zoom
-  const imgRef = useRef(null);
-  const lensRef = useRef(null);
-  const resultRef = useRef(null);
-
-  const zoom = 4; // zoom factor
-  const lensSize = 75;
-  
-
-  const handleMouseMove = (e) => {
-    const img = imgRef.current;
-    const lens = lensRef.current;
-    const result = resultRef.current;
-
-    const rect = img.getBoundingClientRect();
-    let x = e.clientX - rect.left - lens.offsetWidth / 2;
-    let y = e.clientY - rect.top - lens.offsetHeight / 2;
-
-      // clamp lens inside image
-    if (x < 0) x = 0;
-    if (y < 0) y = 0;
-    if (x > rect.width - lens.offsetWidth) x = rect.width - lens.offsetWidth;
-    if (y > rect.height - lens.offsetHeight) y = rect.height - lens.offsetHeight;
-
-    // move lens
-    lens.style.left = x + "px";
-    lens.style.top = y + "px";
-
-    // zoomed background
-    result.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
-    result.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+  // Modal open/close with scroll control
+  const openImageModal = () => {
+    setIsImageModalOpen(true);
+    document.body.style.overflow = 'hidden';
   };
 
-const handleMouseEnter = () => {
-    lensRef.current.style.display = "block";
-    resultRef.current.style.display = "block";
-    resultRef.current.style.backgroundImage = `url(${mainImage})`;
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
-  const handleMouseLeave = () => {
-    lensRef.current.style.display = "none";
-    resultRef.current.style.display = "none";
+  const handleImageClick = (img) => {
+    setMainImage(img);
   };
-
-
-
 
   // State for options
   const [selectedColor, setSelectedColor] = useState("Red");
@@ -94,7 +56,7 @@ const handleMouseEnter = () => {
   const handmadePrice = 29999;
   const handmadeTotal = handmadePrice * handmadeQty;
 
-  // Modal
+  // Modal for info icons
   const [modalContent, setModalContent] = useState(null);
 
   const handleOpenModal = (type) => {
@@ -125,6 +87,45 @@ const handleMouseEnter = () => {
 
   return (
     <div className={styles.productPage}>
+      {/* Image Modal - Fullscreen */}
+      {isImageModalOpen && (
+        <div 
+          className={styles.imageModalOverlay}
+          onClick={closeImageModal}
+        >
+          <div 
+            className={styles.imageModal}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className={styles.closeBtn} onClick={closeImageModal}>
+              ✖
+            </button>
+            
+            <div className={styles.modalLayout}>
+              {/* Large Image on Left */}
+              <div className={styles.modalImageContainer}>
+                <img src={mainImage} alt="Zoomed" className={styles.zoomedImage} />
+              </div>
+
+              {/* Thumbnails on Right */}
+              <div className={styles.modalThumbnailsContainer}>
+                {images.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`Thumb ${index}`}
+                    className={`${styles.modalThumbnail} ${
+                      mainImage === img ? styles.modalThumbnailActive : ""
+                    }`}
+                    onClick={() => handleImageClick(img)}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
         <a href="#">All</a> / <a href="#">New Arrivals</a> /{" "}
@@ -132,51 +133,40 @@ const handleMouseEnter = () => {
       </div>
 
       <div className={styles.mainLayout}>
-       {/* Image + Zoom Section */}
-         <div className={styles.imageSection}>
-       <div
-            className={styles.imageWrapper}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-           <img
-              ref={imgRef}
+        {/* Image Section */}
+        <div className={styles.imageSection}>
+          <div className={styles.imageWrapper}>
+            <img
               src={mainImage}
               alt="Product"
               className={styles.mainImage}
-            /> 
-            <div
-              ref={lensRef}
-              className={styles.lens}
-              style={{ width: lensSize, height: lensSize }}
-            ></div>
+              onClick={openImageModal}
+            />
           </div>
-         
 
-      {/* Thumbnails */}
-      <div className={styles.thumbnails}>
-        {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Thumbnail ${index + 1}`}
-            className={`${styles.thumbnail} ${
-              mainImage === img ? styles.activeThumb : ""
-            }`}
-            onClick={() => setMainImage(img)}
-          />
-        ))}
-      </div>
-    </div>
+          {/* Thumbnails below the main image */}
+          <div className={styles.thumbnails}>
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Thumbnail ${index + 1}`}
+                className={`${styles.thumbnail} ${
+                  mainImage === img ? styles.activeThumb : ""
+                }`}
+                onClick={() => setMainImage(img)}
+              />
+            ))}
+          </div>
+        </div>
 
         {/* PART 2 - MIDDLE DETAILS */}
         <div className={styles.details}>
-
- <div ref={resultRef} className={styles.zoomResult}></div>
-
           <h2 className={styles.title}>PRODUCT TITLE GOES HERE</h2>
-          <p className={styles.brand}>Brand: Staples</p>
+         <p className={styles.brand}>
+  <span className={styles.brandLabel}>Brand:</span> <span className={styles.brandName}>Staples</span>
+</p>
+
 
           {/* Ratings */}
           <div className={styles.ratings}>
@@ -185,46 +175,66 @@ const handleMouseEnter = () => {
           </div>
 
           {/* Price */}
-          <div className={styles.priceBox}>
-            <p className={styles.price}>
-              ₹ 29,999 <span>/month (6 months)</span>
-            </p>
-            <p className={styles.total}>Total ₹ 39,999</p>
-            <p className={styles.discount}>50% Off ₹60,000</p>
-          </div>
+        <div className={styles.priceBox}>
+  {/* EMI Price */}
+  <p className={styles.emiPrice}>
+    ₹9,500 <span>/month (3 months)</span>
+  </p>
+
+  {/* EMI Info */}
+  <p className={styles.total}>
+    with <b>No Cost EMI</b> on your ICICI Credit Card{" "}
+    <button className={styles.link}>
+      All EMI Plans <span className={styles.icon}>▼</span>
+    </button>
+  </p>
+
+  {/* Discount & Final Price */}
+  <div className={styles.priceRow}>
+    <span className={styles.discountBadge}>-41%</span>
+    <span className={styles.finalPrice}>₹28,499</span>
+  </div>
+
+  {/* MRP */}
+  <p className={styles.mrp}>
+    M.R.P.: <span className={styles.strike}>₹48,599</span>
+  </p>
+</div>
+
 
           <h4 className={styles.offersTitle}>Available Offers</h4>
           <ul className={styles.offers}>
-      <li>
-        <BsTagFill className={styles.greenIcon} />
-        10% off on using XYZ card
-      </li>
-      <li>
-        <BsTagFill className={styles.greenIcon} />
-        Shipping on orders above ₹20,000
-      </li>
-      <li>
-        <FaCheckCircle className={styles.greenIcon} /> Free Delivery{" "}
-        <AiOutlineInfoCircle
-          className={styles.infoIcon}
-          onClick={() => handleOpenModal("delivery")}
-        />
-      </li>
-      <li>
-        <FaCheckCircle className={styles.greenIcon} /> 7 Days Replacement{" "}
-        <AiOutlineInfoCircle
-          className={styles.infoIcon}
-          onClick={() => handleOpenModal("replacement")}
-        />
-      </li>
-      <li>
-        <FaCheckCircle className={styles.greenIcon} /> Secure Transaction{" "}
-        <AiOutlineInfoCircle
-          className={styles.infoIcon}
-          onClick={() => handleOpenModal("secure")}
-        />
-      </li>
-    </ul>
+            <li>
+              <BsTagFill className={styles.greenIcon} />
+              10% off on using XYZ card
+            </li>
+            <li>
+              <BsTagFill className={styles.greenIcon} />
+              Shipping on orders above ₹20,000
+            </li>
+            <li>
+              <FaCheckCircle className={styles.greenIcon} /> Free Delivery{" "}
+              <AiOutlineInfoCircle
+                className={styles.infoIcon}
+                onClick={() => handleOpenModal("delivery")}
+              />
+            </li>
+            <li>
+              <FaCheckCircle className={styles.greenIcon} /> 7 Days Replacement{" "}
+              <AiOutlineInfoCircle
+                className={styles.infoIcon}
+                onClick={() => handleOpenModal("replacement")}
+              />
+            </li>
+            <li>
+              <FaCheckCircle className={styles.greenIcon} /> Secure Transaction{" "}
+              <AiOutlineInfoCircle
+                className={styles.infoIcon}
+                onClick={() => handleOpenModal("secure")}
+              />
+            </li>
+          </ul>
+
           {/* Options */}
           <div className={styles.options}>
             <div>
@@ -265,10 +275,13 @@ const handleMouseEnter = () => {
             </div>
           </div>
 
-          {/* Modal */}
+          {/* Info Modal */}
           {modalContent && (
             <div className={styles.modalOverlay}>
               <div className={styles.modal}>
+                <button className={styles.closeBtn} onClick={handleCloseModal}>
+                  ✖
+                </button>
                 <h2>{modalContent.title}</h2>
                 <p>{modalContent.text}</p>
                 <div className={styles.modalButtons}>
@@ -278,44 +291,48 @@ const handleMouseEnter = () => {
                     </button>
                   ))}
                 </div>
-                <button className={styles.closeBtn} onClick={handleCloseModal}>
-                  ✖
-                </button>
               </div>
             </div>
           )}
 
-          
+          <div className={styles.productDetailsContent}>
+            <h3>Key Details</h3>
+            <div className={styles.keyDetailsGrid}>
+              <div className={styles.detailCard}>
+                <strong>Brand:</strong> Atomberg
+              </div>
+              <div className={styles.detailCard}>
+                <strong>Depth:</strong> 12 inch
+              </div>
+              <div className={styles.detailCard}>
+                <strong>Style:</strong> Modern
+              </div>
+              <div className={styles.detailCard}>
+                <strong>Frame:</strong> Metal
+              </div>
+              <div className={styles.detailCard}>
+                <strong>Assembly:</strong> Required
+              </div>
+              <div className={styles.detailCard}>
+                <strong>Seating:</strong> 1 Person
+              </div>
+              <div className={styles.detailCard}>
+                <strong>Shape:</strong> Round
+              </div>
+            </div>
 
-<div className={styles.productDetailsContent}>
-      <h3>Key Details</h3>
-      <div className={styles.keyDetailsGrid}>
-        <div className={styles.detailCard}><strong>Brand:</strong> Atomberg</div>
-        <div className={styles.detailCard}><strong>Depth:</strong> 12 inch</div>
-        <div className={styles.detailCard}><strong>Style:</strong> Modern</div>
-        <div className={styles.detailCard}><strong>Frame:</strong> Metal</div>
-        <div className={styles.detailCard}><strong>Assembly:</strong> Required</div>
-        <div className={styles.detailCard}><strong>Seating:</strong> 1 Person</div>
-        <div className={styles.detailCard}><strong>Shape:</strong> Round</div>
-      </div>
+            <h3>About This Item</h3>
+            <ul className={styles.aboutItemList}>
+              <li>High performance and energy efficient.</li>
+              <li>Elegant design suitable for modern interiors.</li>
+              <li>Durable metal frame ensures long-lasting use.</li>
+              <li>Easy to assemble and maintain.</li>
+              <li>Lightweight and portable.</li>
+              <li>1-year warranty included.</li>
+            </ul>
 
-<h3>About This Item</h3>
-  <ul className={styles.aboutItemList}>
-    <li>High performance and energy efficient.</li>
-    <li>Elegant design suitable for modern interiors.</li>
-    <li>Durable metal frame ensures long-lasting use.</li>
-    <li>Easy to assemble and maintain.</li>
-    <li>Lightweight and portable.</li>
-    <li>1-year warranty included.</li>
-  </ul>
-
-  <button className={styles.seeMoreBtn}>See More</button>
-
-      </div>
-
-
-
-
+            <button className={styles.seeMoreBtn}>See More</button>
+          </div>
         </div>
 
         {/* PART 3 - RIGHT SIDEBAR */}
@@ -363,13 +380,8 @@ const handleMouseEnter = () => {
           </div>
         </div>
 
-
         {/* PART 4 - EXTRA SIDEBAR */}
-
-
-
-        
-        <div className={styles.sidebar}>
+        <div className={styles.sidebarright}>
           {/* Sub Total */}
           <div className={styles.subTotal}>
             <p>
@@ -386,8 +398,8 @@ const handleMouseEnter = () => {
               alt="Offer"
             />
             <h3>Bedsofa</h3>
-            
-            <p style={{ color: "red", fontSize: "16px", margin: 0 }}>
+
+            <p style={{ color: "red", fontSize: "16px", margin: 0, textAlign: "center" }}>
               <strong>₹{bedSofaTotal.toLocaleString()}</strong>
             </p>
 
@@ -410,15 +422,13 @@ const handleMouseEnter = () => {
 
           {/* HANDMADE */}
           <div className={styles.handmade}>
-           <div className={styles.handmadeContent}>
-    <h4>HAND MADE</h4>
-    <p>
-      WITH <span style={{ color: "red" }}>❤</span> LOVE
-    </p>
-  </div>
-            {/* <h2>₹{handmadePrice.toLocaleString()}</h2> */}
-
-            <p style={{ color: "red", fontSize: "16px", margin: 0 }}>
+            <div className={styles.handmadeContent}>
+              <h4>HAND MADE</h4>
+              <p>
+                WITH <span style={{ color: "red" }}>❤</span> LOVE
+              </p>
+            </div>
+            <p style={{ color: "red", fontSize: "16px", margin: 0, textAlign: "center" }}>
               <strong>₹{handmadeTotal.toLocaleString()}</strong>
             </p>
 

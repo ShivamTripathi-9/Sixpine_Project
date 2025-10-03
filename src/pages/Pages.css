@@ -16,15 +16,10 @@
 .supply_container
 {
   max-width: 1320px;  
-  margin: 0 auto;     /* center align */
+  margin: 0 auto;    
   /* padding: 0 20px;     */
 }
 
 
-/* 
 
-import "./Pages.css"; 
 
-   <div className="advertisingpreferece_container">
-
-*/

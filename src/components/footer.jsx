@@ -88,7 +88,7 @@ export default function Footer() {
             <li><Link to="/your-account"> Your Account </Link></li>
             <li> <Link to ="/recalls_product">Recalls & Product Safety Alert </Link> </li>
             <li> <Link to ="/purchaseProtection">100% Purchase Protection </Link></li>
-            <li> <Link to ="/your-app">Download the Sixpine App 📱</Link></li>
+            <li> <Link to ="/your-app">Download  Sixpine App 📱</Link></li>
           
             <li>Help</li>
           </ul>
@@ -100,9 +100,12 @@ export default function Footer() {
         <div className={styles.logo}>Sixpine Logo....</div>
         <div className={styles.languageSelector}>
           <select>
-            <option>English</option>
-            <option>Hindi</option>
-          </select>
+  <option>English</option>
+  <option>Hindi</option>
+  <option>French</option>
+  <option>Spanish</option>
+</select>
+
           <span>🌍 India</span>
         </div>
       </div>
