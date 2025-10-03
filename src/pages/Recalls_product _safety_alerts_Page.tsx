@@ -6,21 +6,21 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import Recalls_product from "../components/Recalls_product _safety_alerts.jsx";
 
 import Footer from "../components/footer.jsx";
+import "./Pages.css";
 
 
-
-
-const CareerPage: React.FC = () => {
+const RecallsProductSafetyAlertsPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="recalls_product_container">
 
    <Recalls_product/>
      
-      
+      </div>
 
   
       <Footer />
@@ -31,6 +31,6 @@ const CareerPage: React.FC = () => {
   );
 };
 
-export default CareerPage;
+export default RecallsProductSafetyAlertsPage;
 
 

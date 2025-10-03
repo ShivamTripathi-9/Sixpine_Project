@@ -5,19 +5,21 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import Footer from "../components/footer.jsx";
 import CloseYourSixpineAccount from "../components/CloseYourSixpineAccount.jsx";
 
+import "./Pages.css"; 
 
 
-
-const AboutPage: React.FC = () => {
+const CloseYourSixpineAccountPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      
+      <div className="closeyoursixpineaccount_container">
       <CloseYourSixpineAccount />
       
-
+</div>
   
       <Footer />
 
@@ -27,6 +29,6 @@ const AboutPage: React.FC = () => {
   );
 };
 
-export default AboutPage;
+export default CloseYourSixpineAccountPage;
 
 

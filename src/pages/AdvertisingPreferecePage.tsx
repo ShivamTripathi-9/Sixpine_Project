@@ -8,9 +8,9 @@ import Advertising_Preferece from "../components/Advertising-prefereces/advertis
 import ProductSider from "../components/Advertising-prefereces/productSlider.jsx";
 
 
+import "./Pages.css"; 
 
-
-const CareerPage: React.FC = () => {
+const AdvertisingPreferecePage: React.FC = () => {
 
   return (
     <div>
@@ -18,11 +18,15 @@ const CareerPage: React.FC = () => {
       <Navigation />
       {/* <NavigationDown /> */}
 
+         <div className="advertisingpreferece_container">
+
+      
+
       <Advertising_Preferece/>
       <ProductSider/>
       
       
-
+   </div>
   
       <Footer />
 
@@ -32,6 +36,6 @@ const CareerPage: React.FC = () => {
   );
 };
 
-export default CareerPage;
+export default AdvertisingPreferecePage;
 
 

@@ -16,8 +16,12 @@ const AccountPage: React.FC = () => {
       <Navbar />
       <Navigation />
       {/* <NavigationDown /> */}
+
+          <div className="accountpage_container">
       <Account />
       <ProductSlider />
+
+      </div>
       <Footer />
 
       

@@ -14,7 +14,7 @@ import HomepageText from "../components/Home/HomepageText.jsx";
 
 import FeatureCard from "../components/Home/FeatureCard.jsx";
 
-import "./Homepage.css";
+import "./Pages.css";
 
 const Homepage: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const Homepage: React.FC = () => {
       <NavigationDown />
 
      {/* Container wrap */}
-      <div className="homepage-container">
+      <div className="homepage_container">
         <HeroSection />
         <HeroSection2 />
         <HeroSection3 />

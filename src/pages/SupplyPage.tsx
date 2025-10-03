@@ -4,21 +4,22 @@ import Navigation from "../components/Navigation.jsx";
 import NavigationDown from "../components/Navigationdown.jsx";
 import Supply from "../components/Supply.jsx";
 import Footer from "../components/footer.jsx";
+import "./Pages.css"; 
 
 
 
-
-const CareerPage: React.FC = () => {
+const SupplyPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="supply_container">
 
       <Supply/>
      
-      
+      </div>
 
   
       <Footer />
@@ -29,6 +30,6 @@ const CareerPage: React.FC = () => {
   );
 };
 
-export default CareerPage;
+export default SupplyPage;
 
 

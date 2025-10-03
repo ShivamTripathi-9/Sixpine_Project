@@ -5,19 +5,20 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import Footer from "../components/footer.jsx";
 import DataRequest from "../components/data-request.jsx";
 
+import "./Pages.css";
 
 
-
-const AboutPage: React.FC = () => {
+const DataRequestPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="datarequest_container">
       <DataRequest />
       
-
+</div>
   
       <Footer />
 
@@ -27,6 +28,6 @@ const AboutPage: React.FC = () => {
   );
 };
 
-export default AboutPage;
+export default DataRequestPage;
 
 

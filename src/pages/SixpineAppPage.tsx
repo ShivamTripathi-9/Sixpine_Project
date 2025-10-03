@@ -5,20 +5,21 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import SixpineApp from "../components/SixpineApp.jsx";
 import Footer from "../components/footer.jsx";
 
+import "./Pages.css";
 
 
-
-const CareerPage: React.FC = () => {
+const SixpineAppPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="sixpineapp_container">
 
       <SixpineApp/>
      
-      
+      </div>
 
   
       <Footer />
@@ -29,6 +30,6 @@ const CareerPage: React.FC = () => {
   );
 };
 
-export default CareerPage;
+export default SixpineAppPage;
 
 

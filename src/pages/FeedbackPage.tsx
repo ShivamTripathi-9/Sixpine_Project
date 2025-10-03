@@ -4,19 +4,21 @@ import Navigation from "../components/Navigation.jsx";
 import Footer from "../components/footer.jsx";
 import Feedback from "../components/feedback.jsx";
 
+import "./Pages.css";
 
 
-
-const AboutPage: React.FC = () => {
+const FeedbackPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       {/* <Navigationdown /> */}
+
+      <div className="feedback_container">
       <Feedback />
       
-
+</div>
   
       <Footer />
 
@@ -26,6 +28,6 @@ const AboutPage: React.FC = () => {
   );
 };
 
-export default AboutPage;
+export default FeedbackPage;
 
 

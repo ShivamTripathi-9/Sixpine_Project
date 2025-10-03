@@ -8,19 +8,20 @@ import CommunicationPreferences from "../components/communication-preferences.js
 
 import ProductSider from "../components/Advertising-prefereces/productSlider.jsx";
 
+import "./Pages.css";
 
-
-const AboutPage: React.FC = () => {
+const CommunicationPreferencesPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="communicationpreferences_container">
       <CommunicationPreferences />
        <ProductSider/>
 
-  
+      </div>
       <Footer />
 
       
@@ -29,6 +30,5 @@ const AboutPage: React.FC = () => {
   );
 };
 
-export default AboutPage;
-
+export default CommunicationPreferencesPage;
 

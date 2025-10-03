@@ -7,18 +7,18 @@ import Footer from "../components/footer.jsx";
 
 
 
-
-const CareerPage: React.FC = () => {
+import "./Pages.css";
+const PurchaseProtectionPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="purchaseprotection_container">
 
       <PurchaseProtection/>
-     
-      
+      </div>
 
   
       <Footer />
@@ -29,6 +29,6 @@ const CareerPage: React.FC = () => {
   );
 };
 
-export default CareerPage;
+export default PurchaseProtectionPage;
 
 

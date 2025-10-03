@@ -7,19 +7,21 @@ import Loginsecurity from "../components/loginsecurity.jsx";
 import Productdetails_Slider1 from "../components/Products_Details/productdetails_slider1.jsx";
 
 
+import "./Pages.css";
 
-
-const AboutPage: React.FC = () => {
+const LoginSecurityPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="loginsecurity_container">
       <Loginsecurity />
 
       <Productdetails_Slider1/>
-      
+
+      </div>
 
   
       <Footer />
@@ -30,6 +32,6 @@ const AboutPage: React.FC = () => {
   );
 };
 
-export default AboutPage;
+export default LoginSecurityPage;
 
 

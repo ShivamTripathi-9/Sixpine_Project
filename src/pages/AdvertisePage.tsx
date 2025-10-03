@@ -7,18 +7,19 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import Footer from "../components/footer.jsx";
 import Advertise from "../components/Advertise.jsx";
 
+import "./Pages.css";
 
-
-const CareerPage: React.FC = () => {
+const AdvertisePage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+          <div className="advertisepage_container">
       <Advertise />
       
-
+</div>
   
       <Footer />
 
@@ -28,6 +29,6 @@ const CareerPage: React.FC = () => {
   );
 };
 
-export default CareerPage;
+export default AdvertisePage;
 
 

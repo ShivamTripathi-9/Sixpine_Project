@@ -7,7 +7,7 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import Footer from "../components/footer.jsx";
 import Career from "../components/career.jsx";
 
-
+import "./Pages.css"; 
 
 const CareerPage: React.FC = () => {
 
@@ -16,9 +16,10 @@ const CareerPage: React.FC = () => {
       <Navbar />
       <Navigation />
       <NavigationDown />
+         <div className="career_container">
       <Career />
       
-
+</div>
   
       <Footer />
 

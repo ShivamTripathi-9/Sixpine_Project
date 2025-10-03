@@ -7,18 +7,19 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import Footer from "../components/footer.jsx";
 import Login from "../components/login.jsx";
 
+import "./Pages.css";
 
 
-
-const AboutPage: React.FC = () => {
+const LoginPage: React.FC = () => {
 
   return (
     <div>
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="login_container">
       <Login />
-      
+      </div>
 
   
       <Footer />
@@ -29,6 +30,6 @@ const AboutPage: React.FC = () => {
   );
 };
 
-export default AboutPage;
+export default LoginPage;
 
 

@@ -6,7 +6,7 @@ import NavigationDown from "../components/Navigationdown.jsx";
 import Footer from "../components/footer.jsx";
 import About from "../components/About.jsx";
 
-
+import "./Pages.css";
 
 
 const AboutPage: React.FC = () => {
@@ -16,9 +16,10 @@ const AboutPage: React.FC = () => {
       <Navbar />
       <Navigation />
       <NavigationDown />
+      <div className="aboutpage_container">
       <About />
       
-
+</div>
   
       <Footer />
 
