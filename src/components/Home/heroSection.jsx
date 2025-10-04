@@ -47,6 +47,34 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
+
+
+
+
+
+const TawkToChat = () => {
+  useEffect(() => {
+   
+    if (!window.Tawk_API) {
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      var s1 = document.createElement("script");
+      s1.async = true;
+      s1.src = "https://embed.tawk.to/68dced968574b01951516e54/1j6fg05ni";
+      s1.charset = "UTF-8";
+      s1.setAttribute("crossorigin", "*");
+      document.body.appendChild(s1);
+    }
+  }, []);
+
+  return null; 
+};
+
+
+
+
+
+
+
   return (
     <div className={styles.heroContainer}>
       <div className={styles.heroWrapper}>
@@ -185,8 +213,12 @@ const HeroSection = () => {
               <div>Help</div>
             </div>
           </div>
+
+         
         </div>
+         <TawkToChat />
       </div>
+      
 
       {/* banner up */}
       <div className={styles.bannerContainer}>

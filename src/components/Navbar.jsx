@@ -39,8 +39,8 @@ const SixpineHeader = () => {
                 <option>Sofas & Seating</option>
                 <option>Chairs & Relaxation</option>
                 <option>Beds & Bedroom</option>
-                <option>Tables & Storage</option>
-                <option>Luxury Collection</option>
+                <option>Home & Garden</option>
+                <option>Sports</option>
               </select>
             </div>
             
