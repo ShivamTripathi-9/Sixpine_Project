@@ -82,18 +82,20 @@ function NavbarMenu() {
   };
 
   const menuItems = [
-    { title: "All" },
+    { title: "Home" },
     {
-      title: "Trendings",
-      dropdown: ["Clothing", "Shoes", "Accessories"],
+      title: "Trendings"
+      // dropdown: ["Clothing", "Shoes", "Accessories"],
     },
    
-    { title: "Best Deals" },
+    { title: "Buy Again" },
     {
-      title: "Recently Browsed",
-      dropdown: ["Lightning Deals", "Clearance", "Coupons"],
+      title: "Continue Shopping"
+      // dropdown: ["Lightning Deals", "Clearance", "Coupons"],
     },
-    { title: "By in Bulk" },
+    { title: "Best Deals" },
+    { title: "Recently Browsed" },
+    { title: "Buy in Bulk" },
     { title: "Track Order" },
     { title: "Contact Us" },
     { title: "Help" },

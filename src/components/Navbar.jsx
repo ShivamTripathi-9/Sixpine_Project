@@ -36,11 +36,11 @@ const SixpineHeader = () => {
                 className={styles.categoryDropdown}
               >
                 <option>All Categories</option>
-                <option>Electronics</option>
-                <option>Clothing</option>
-                <option>Books</option>
-                <option>Home & Garden</option>
-                <option>Sports</option>
+                <option>Sofas & Seating</option>
+                <option>Chairs & Relaxation</option>
+                <option>Beds & Bedroom</option>
+                <option>Tables & Storage</option>
+                <option>Luxury Collection</option>
               </select>
             </div>
             

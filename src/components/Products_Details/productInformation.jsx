@@ -5,7 +5,7 @@ import styles from "./productInformation.module.css";
 
 const ProductInformation = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.infocontainer}>
       <h2 className={styles.heading}>Product information</h2>
 
       <div className={styles.grid}>

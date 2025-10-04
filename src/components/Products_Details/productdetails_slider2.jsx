@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight, FaHeart, FaShoppingCart } from "react-ic
 // Slider Product Data
 const products1 = [
   {
-    img: "/images/Home/sofa1.jpg",
+   img: "/images/Home/sofaproduct.jpg",
     title: "Elegant Sofa",
     desc: "Elegant wooden sofa with soft cushions & premium finish",
     rating: 4.5,
@@ -32,7 +32,7 @@ const products1 = [
     newPrice: "₹6,999",
   },
   {
-    img: "/images/Home/sofa4.jpg",
+    img: "/images/Home/sofaproduct.jpg",
     title: "Living Sofa",
     desc: "Classic styled sofa perfect for small living rooms",
     rating: 4.0,

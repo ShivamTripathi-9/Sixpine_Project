@@ -2,17 +2,16 @@
   width: 100%;
   padding:0 20px;
   box-sizing: border-box;
-  font-family: Arial, sans-serif; /* Added a generic font-family for consistency */
-  /* background-color: #f7f3f2;  */
+  font-family: Arial, sans-serif; 
+
 }
 
-/* ---------- TOP SECTION ---------- */
 .topSection {
   background: #fff4f3; 
-  padding: 22px;
+  padding: 20px;
   display: grid;
   grid-template-columns: 320px 1fr;
-  gap: 15px;
+  /* gap: 15px; */
   align-items: flex-start; 
   border-radius: 8px;
 }
@@ -20,14 +19,14 @@
 /* Left text */
 .leftText {
   position: relative;
-  /* background-color: #fcebeb; */
-  /* padding: 30px 20px; */
+  /* background-color: #c01919; */
+  padding: 10px 10px;
   border-radius: 8px; 
   /* min-height: 380px;  */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 .leftText h2 {
   font-size: 28px; 
@@ -58,11 +57,12 @@
   font-size: 18px; /* Larger offer text */
   text-align: left;
   margin-top: 10px; /* Added margin-top */
+  margin-bottom: 5px;
 }
 
 .leftProductCard {
   background-color: #fff; /* White background for product cards */
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
   display: flex;
   flex-direction: column;
@@ -71,16 +71,17 @@
   padding-bottom: 10px; 
   cursor: pointer; 
   transition: transform 0.2s ease-in-out; 
-  margin-top: 15px;
+  margin-top: 20px;
+  /* background-color: #222; */
 
 }
 
 .leftProductImg {
   width: 100%;
-  height: 150px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-bottom: 8px;
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 8px 8px 0 0; 
+  display: block;
 }
 
 .leftProductName {

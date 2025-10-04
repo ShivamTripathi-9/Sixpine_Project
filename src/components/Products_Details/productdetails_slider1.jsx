@@ -1,56 +1,94 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styles from "./productdetails_slider1.module.css";
-import { FaChevronLeft, FaChevronRight, FaHeart, FaShoppingCart } from "react-icons/fa";
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaHeart,
+  FaShoppingCart,
+} from "react-icons/fa";
 
-/* ---------- Product Data (dummy) ---------- */
+// Product Data
 const products1 = [
-  { img: "/images/Home/sofa.jpg", title: "Sofa1", desc: "Elegant 3-seater sofa with cushions.", rating: 4.5, reviews: 90, oldPrice: "₹19,999", newPrice: "₹12,999" },
-  { img: "/images/Home/sofa.jpg", title: "Bed Sheet2", desc: "High-quality cotton bed sheet.", rating: 4.2, reviews: 75, oldPrice: "₹3,999", newPrice: "₹2,999" },
-  { img: "/images/Home/sofa.jpg", title: "Chair3", desc: "Stylish wooden chair.", rating: 4.3, reviews: 110, oldPrice: "₹9,999", newPrice: "₹6,999" },
-  { img: "/images/Home/sofa.jpg", title: "Home Sofa4", desc: "Compact home sofa.", rating: 4.0, reviews: 60, oldPrice: "₹18,999", newPrice: "₹12,999" },
-  { img: "/images/Home/sofa.jpg", title: "Sofa1", desc: "Elegant 3-seater sofa with cushions.", rating: 4.5, reviews: 90, oldPrice: "₹19,999", newPrice: "₹12,999" },
-  { img: "/images/Home/sofa.jpg", title: "Bed Sheet2", desc: "High-quality cotton bed sheet.", rating: 4.2, reviews: 75, oldPrice: "₹3,999", newPrice: "₹2,999" },
-  { img: "/images/Home/sofa.jpg", title: "Chair3", desc: "Stylish wooden chair.", rating: 4.3, reviews: 110, oldPrice: "₹9,999", newPrice: "₹6,999" },
-  { img: "/images/Home/sofa.jpg", title: "Home Sofa4", desc: "Compact home sofa.", rating: 4.0, reviews: 60, oldPrice: "₹18,999", newPrice: "₹12,999" },
+  {
+    img: "/images/Home/sofaproduct.jpg",
+    title: "Elegant Sofa",
+    desc: "Elegant wooden sofa with soft cushions & premium finish",
+    rating: 4.5,
+    reviews: 200,
+    oldPrice: "₹15,999",
+    newPrice: "₹12,999",
+  },
+  {
+    img: "/images/Home/bed copy.jpg",
+    title: "Modern Bed",
+    desc: "Premium solid wood bed with textured fabric finish",
+    rating: 4.2,
+    reviews: 75,
+    oldPrice: "₹18,999",
+    newPrice: "₹13,999",
+  },
+  {
+    img: "/images/Home/chair copy.jpg",
+    title: "Comfort Chair",
+    desc: "Modern wooden chair with ergonomic design for comfort",
+    rating: 4.3,
+    reviews: 110,
+    oldPrice: "₹8,999",
+    newPrice: "₹6,999",
+  },
+  {
+    img: "/images/Home/sofa4.jpg",
+    title: "Living Sofa",
+    desc: "Classic styled sofa perfect for small living rooms",
+    rating: 4.0,
+    reviews: 95,
+    oldPrice: "₹14,999",
+    newPrice: "₹10,999",
+  },
+  {
+    img: "/images/Home/sofa1.jpg",
+    title: "Designer Sofa",
+    desc: "Sophisticated design with plush seating and durable frame",
+    rating: 4.7,
+    reviews: 250,
+    oldPrice: "₹17,999",
+    newPrice: "₹14,999",
+  },
+  {
+    img: "/images/Home/sofa2.jpg",
+    title: "Bedroom Set",
+    desc: "Complete bedroom solution with bed and side tables",
+    rating: 4.3,
+    reviews: 150,
+    oldPrice: "₹25,999",
+    newPrice: "₹19,999",
+  },
 ];
 
-const ProductDetailsSlider1 = () => {
-  const sliderRef = useRef(null);
-  const [page, setPage] = useState(1);
-  const [pages] = useState(products1.length);
+const Crafted = () => {
+  const slider1 = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   const [hearts, setHearts] = useState(() => products1.map(() => false));
 
-  /* ---------- Scroll one full card (with margin) ---------- */
-  const scrollByCard = (dir) => {
-    if (!sliderRef.current) return;
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 425);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-    const card = sliderRef.current.querySelector(`.${styles.productCard}`);
-    if (!card) return;
-
-    // card width + margin
-    const cardStyle = window.getComputedStyle(card);
-    const cardMargin =
-      parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight);
-    const cardWidth = card.offsetWidth + cardMargin;
-
-    const currentScroll = sliderRef.current.scrollLeft;
-    const newScroll =
-      dir === "left" ? currentScroll - cardWidth : currentScroll + cardWidth;
-
-    sliderRef.current.scrollTo({
-      left: newScroll,
-      behavior: "smooth",
-    });
-
-    // update page number
-    const newPage = Math.min(
-      pages,
-      Math.max(1, Math.round(newScroll / cardWidth) + 1)
-    );
-    setPage(newPage);
+  const scroll = (ref, dir) => {
+    if (ref.current) {
+      const scrollAmount = isMobile ? ref.current.offsetWidth : 300;
+      ref.current.scrollBy({
+        left: dir === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
-  /* ---------- Heart toggle ---------- */
   const toggleHeart = (idx) => {
     setHearts((prev) => {
       const copy = [...prev];
@@ -59,83 +97,68 @@ const ProductDetailsSlider1 = () => {
     });
   };
 
-  return (
-    <div className={styles.container}>
-      <section className={styles.sliderSection}>
-        <div className={styles.sliderHeader}>
-          <h3 className={styles.sliderTitle}>Inspired by your browsing history</h3>
-          {/* <div className={styles.pageControls}>
-            <span className={styles.pageText}>
-              Page {page} of {pages}
-            </span>
-          </div> */}
+  const renderProducts = (products) =>
+    products.map((p, idx) => (
+      <div className={styles.craftedProductCard} key={idx}>
+        <div className={styles.imageWrapper}>
+          <img src={p.img} alt={p.title} className={styles.productImg1} />
+          {/* ❤️ Heart Icon */}
+          <FaHeart
+            className={`${styles.heartIcon} ${
+              hearts[idx] ? styles.heartActive : ""
+            }`}
+            onClick={() => toggleHeart(idx)}
+          />
         </div>
 
+        <h4 className={styles.productTitle}>{p.title}</h4>
+        <p className={styles.productDesc}>{p.desc}</p>
+
+        <div className={styles.productRating}>
+          {"★".repeat(Math.floor(p.rating))}
+          {"☆".repeat(5 - Math.floor(p.rating))}
+          <span> ({p.reviews} reviews)</span>
+        </div>
+
+        <div className={styles.productPrices}>
+          
+          <span className={styles.newPrice}>{p.newPrice}</span>
+          <span className={styles.oldPrice}>{p.oldPrice}</span>
+        </div>
+
+        <div className={styles.actionRow}>
+          <button className={styles.buyBtn}>Buy Now</button>
+          <div className={styles.productIcons}>
+            <FaShoppingCart />
+          </div>
+        </div>
+      </div>
+    ));
+
+  return (
+    <div className={styles.craftedContainer}>
+      <div className={styles.craftedSliderSection}>
+        <h3 className={styles.sliderTitle}>Inspired by your browsing history</h3>
         <div className={styles.sliderWrapper}>
           <button
-            className={`${styles.bigArrow} ${styles.left}`}
-            onClick={() => scrollByCard("left")}
+            className={`${styles.sliderArrow} ${styles.left}`}
+            onClick={() => scroll(slider1, "left")}
           >
             <FaChevronLeft />
           </button>
-
-          <div className={styles.slider} ref={sliderRef}>
-            {products1.map((p, idx) => (
-              <div className={styles.productCard} key={idx}>
-                <div className={styles.imgWrap}>
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    className={styles.productImg}
-                  />
-                  <button
-                    className={styles.heartBtn}
-                    onClick={() => toggleHeart(idx)}
-                  >
-                    <FaHeart
-                      className={
-                        hearts[idx] ? styles.heartActive : styles.heartIcon
-                      }
-                    />
-                  </button>
-                </div>
-                <div className={styles.cardBody}>
-                  <h4 className={styles.productTitle}>{p.title}</h4>
-                  <p className={styles.productDesc}>{p.desc}</p>
-                  <div className={styles.productRating}>
-                    <span className={styles.stars}>
-                      {"★".repeat(Math.floor(p.rating))}
-                      {"☆".repeat(5 - Math.floor(p.rating))}
-                    </span>
-                    <span className={styles.reviews}>
-                      ({p.reviews} reviews)
-                    </span>
-                  </div>
-                  <div className={styles.productPrices}>
-                    <span className={styles.newPrice}>{p.newPrice}</span>
-                    <span className={styles.oldPrice}>{p.oldPrice}</span>
-                  </div>
-                  <div className={styles.cardActions}>
-                    <button className={styles.buyBtn}>Buy Now</button>
-                    <button className={styles.cartBtn}>
-                      <FaShoppingCart />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className={styles.craftedSlider} ref={slider1}>
+            {renderProducts(products1)}
           </div>
-
           <button
-            className={`${styles.bigArrow} ${styles.right}`}
-            onClick={() => scrollByCard("right")}
+            className={`${styles.sliderArrow} ${styles.right}`}
+            onClick={() => scroll(slider1, "right")}
           >
             <FaChevronRight />
           </button>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
 
-export default ProductDetailsSlider1;
+export default Crafted;

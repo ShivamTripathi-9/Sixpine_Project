@@ -82,21 +82,25 @@ function NavbarMenu() {
   };
 
   const menuItems = [
-    { title: "Home",
+    { title: "All",
        dropdown: ["Hpme Page1", "HomePage2"],
     },
     {
-      title: "Kitchen Home",
+      title: "Sofa & Couches",
+      dropdown: ["Hpme Page1", "HomePage2"],
+      title: "Sofa & Couches"
       
     },
     
-    { title: "Large Furniture" },
+    { title: "Sofa Chairs" },
     {
-      title: "Kitchen"
+      title: "Rocking Chairs"
       
     },
-    { title: "Furniture" },
-    { title: "Home Decoration" },
+    { title: "Ottomans" },
+   
+    { title: "Beds & Sofa Cum Beds" },
+    { title: "Luxury" },
   
   ];
 

@@ -12,10 +12,11 @@ import { BsTagFill } from "react-icons/bs";
 
 const ProductDetails = () => {
   const images = [
-    "https://ii1.pepperfry.com/media/catalog/product/m/d/494x544/mdf---sheesham-wood-pooja-mandir-in-copper-by-d-dass-mdf---sheesham-wood-pooja-mandir-in-copper-by-d-1up9tw.jpg",
-    "https://ochaka.vercel.app/images/products/fashion/product-1.jpg",
-    "https://www.worldwin.in/upload/product/472794.jpeg",
-    "https://ii1.pepperfry.com/media/catalog/product/m/d/494x544/mdf---sheesham-wood-pooja-mandir-in-copper-by-d-dass-mdf---sheesham-wood-pooja-mandir-in-copper-by-d-1up9tw.jpg",
+    "https://m.media-amazon.com/images/I/61zwcSVl3YL._SX679_.jpg",
+    "https://m.media-amazon.com/images/I/614YRo2ONvL._SX679_.jpg",
+   "https://m.media-amazon.com/images/I/81B1YNHqwCL._SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/717-CNGEtTL._SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71HBQDGu1EL._SX679_.jpg"
   ];
 
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);

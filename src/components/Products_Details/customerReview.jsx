@@ -3,7 +3,7 @@ import styles from "./customerReview.module.css";
 
 const CustomerReview = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.Reviewcontainer}>
       <h3 className={styles.title}>
         Customers Frequently viewed | Popular products in the last 7 days
       </h3>
