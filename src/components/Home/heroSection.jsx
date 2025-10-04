@@ -3,6 +3,7 @@ import styles from './heroSection.module.css';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const slides = [
     {
@@ -42,6 +43,10 @@ const HeroSection = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+   const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
@@ -52,22 +57,8 @@ const HeroSection = () => {
 
 
 
-const TawkToChat = () => {
-  useEffect(() => {
-   
-    if (!window.Tawk_API) {
-      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-      var s1 = document.createElement("script");
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/68dced968574b01951516e54/1j6fg05ni";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      document.body.appendChild(s1);
-    }
-  }, []);
 
-  return null; 
-};
+
 
 
 
@@ -187,9 +178,10 @@ const TawkToChat = () => {
         </div>
 
         {/* Customer Support Section */}
+        {/* Customer Support Section */}
         <div className={styles.supportButtons}>
           {/* Buy On Phone */}
-          <div className={`${styles.supportBtn} ${styles.phoneBtn}`}>
+          <div className={`${styles.supportBtn} ${styles.phoneBtn}`} onClick={togglePopup}>
             <div className={styles.supportIcon}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M22 16.92V19.92C22 20.52 21.52 21.01 20.92 21.01C9.39 21.01 2.99 14.61 2.99 3.08C2.99 2.48 3.48 2 4.08 2H7.08C7.68 2 8.16 2.48 8.16 3.08C8.16 4.08 8.35 5.05 8.71 5.94C8.87 6.31 8.76 6.76 8.44 7.04L6.9 8.22C8.07 10.86 10.13 12.92 12.77 14.09L13.95 12.55C14.23 12.23 14.68 12.12 15.05 12.28C15.94 12.64 16.91 12.83 17.91 12.83C18.51 12.83 18.99 13.31 18.99 13.91V16.91H22V16.92Z" stroke="currentColor" strokeWidth="2"/>
@@ -213,12 +205,55 @@ const TawkToChat = () => {
               <div>Help</div>
             </div>
           </div>
-
-         
         </div>
-         <TawkToChat />
+
+        {/* Side Popup */}
+       {isOpen && (
+  <div className={styles.popupOverlay} onClick={togglePopup}>
+    <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
+      {/* Close Icon */}
+      <button className={styles.closeIcon} onClick={togglePopup}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      </button>
+
+      {/* Header */}
+      <div className={styles.popupHeader}>
+        <div className={styles.bulletPoint}>● 8 Experts Online Now To Assist You</div>
+        <h3 className={styles.popupTitle}>Talk To A Furniture Expert Now</h3>
+        <p className={styles.popupTime}>Available between 10 AM - 7 PM</p>
       </div>
-      
+
+      {/* Phone Number with Icon */}
+      <div className={styles.phoneDisplay}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className={styles.phoneIcon}>
+          <path d="M22 16.92V19.92C22 20.52 21.52 21.01 20.92 21.01C9.39 21.01 2.99 14.61 2.99 3.08C2.99 2.48 3.48 2 4.08 2H7.08C7.68 2 8.16 2.48 8.16 3.08C8.16 4.08 8.35 5.05 8.71 5.94C8.87 6.31 8.76 6.76 8.44 7.04L6.9 8.22C8.07 10.86 10.13 12.92 12.77 14.09L13.95 12.55C14.23 12.23 14.68 12.12 15.05 12.28C15.94 12.64 16.91 12.83 17.91 12.83C18.51 12.83 18.99 13.31 18.99 13.91V16.91H22V16.92Z" stroke="#ff5722" strokeWidth="2"/>
+        </svg>
+        <a href="tel:9897268972" className={styles.phoneNumber}>9897268972</a>
+      </div>
+
+      {/* OR Divider */}
+      <div className={styles.orDivider}>OR</div>
+
+      {/* WhatsApp Button */}
+      <a href="https://wa.me/9628209929" target="_blank" rel="noopener noreferrer" className={styles.chatButton}>
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+          alt="WhatsApp" 
+          width="20" 
+          height="20"
+        />
+        CHAT NOW
+      </a>
+
+      {/* Footer Text */}
+      <p className={styles.footerText}>Call us to get <strong>free Sixpine credits</strong></p>
+    </div>
+  </div>
+)}
+      </div>
+
 
       {/* banner up */}
       <div className={styles.bannerContainer}>
@@ -234,5 +269,6 @@ const TawkToChat = () => {
 
   );
 };
+    
 
 export default HeroSection;

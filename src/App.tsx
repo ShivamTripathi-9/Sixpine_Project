@@ -21,6 +21,7 @@ import Recalls_product from "./pages/Recalls_product _safety_alerts_Page.tsx";
 import PurchaseProtectionPage from "./pages/PurchaseProtectionPage.tsx";
 import SixPineApp from "./pages/SixpineAppPage.tsx";
 import AdvertisePage from "./pages/AdvertisePage.tsx";
+import TawkToChat from './components/TawkToChat.jsx'; 
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,7 +38,9 @@ function App() {
   return (
     <Router>
         <ScrollToTop />
+        
       <Routes>
+        
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -60,6 +63,8 @@ function App() {
         <Route path="/advertise" element={<AdvertisePage/>} />
 
       </Routes>
+
+       <TawkToChat />
     </Router>
   );
 }
